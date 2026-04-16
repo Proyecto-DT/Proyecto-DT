@@ -1,0 +1,484 @@
+[gd_scene format=3 uid="uid://bd5p4mk7j3yar"]
+
+[ext_resource type="PackedScene" uid="uid://dvlgxc1k3m40d" path="res://assets/detail-crystal-large.fbx" id="1_f34x5"]
+[ext_resource type="PackedScene" uid="uid://cugyo7vpmw6cn" path="res://assets/detail-crystal.fbx" id="2_1ivfc"]
+[ext_resource type="PackedScene" uid="uid://71r2o53ol7pa" path="res://assets/detail-dirt-large.fbx" id="3_j3kt1"]
+[ext_resource type="PackedScene" uid="uid://dhgv3x8y8bmgl" path="res://assets/detail-dirt.fbx" id="4_a1u8e"]
+[ext_resource type="PackedScene" uid="uid://bw10rop5s53m" path="res://assets/detail-rocks-large.fbx" id="5_qxeb5"]
+[ext_resource type="PackedScene" uid="uid://bbrhxyib6blxw" path="res://assets/detail-rocks.fbx" id="6_uj7hi"]
+[ext_resource type="PackedScene" uid="uid://bsg86g6cbdspg" path="res://assets/detail-tree-large.fbx" id="7_bkhx1"]
+[ext_resource type="PackedScene" uid="uid://4cswvrpwhqj0" path="res://assets/detail-tree.fbx" id="8_8eqer"]
+[ext_resource type="PackedScene" uid="uid://cyrl8pgashm5a" path="res://assets/enemy-ufo-a-weapon.fbx" id="9_a7254"]
+[ext_resource type="PackedScene" uid="uid://cnpa6cfrqxxyh" path="res://assets/enemy-ufo-a.fbx" id="10_pat6g"]
+[ext_resource type="PackedScene" uid="uid://cw55otvcotg16" path="res://assets/enemy-ufo-b-weapon.fbx" id="11_h2slc"]
+[ext_resource type="PackedScene" uid="uid://dps7unwvebv27" path="res://assets/enemy-ufo-b.fbx" id="12_fedvy"]
+[ext_resource type="PackedScene" uid="uid://dcxldrkjl0fgh" path="res://assets/enemy-ufo-beam-burst.fbx" id="13_wksml"]
+[ext_resource type="PackedScene" uid="uid://d0ng1jv1rjbgk" path="res://assets/enemy-ufo-beam.fbx" id="14_2tiq3"]
+[ext_resource type="PackedScene" uid="uid://cfef2t7l0kg0j" path="res://assets/enemy-ufo-c-weapon.fbx" id="15_bxrjs"]
+[ext_resource type="PackedScene" uid="uid://chboyf1js317y" path="res://assets/enemy-ufo-c.fbx" id="16_t26bq"]
+[ext_resource type="PackedScene" uid="uid://cusp53qwi6swj" path="res://assets/enemy-ufo-d-weapon.fbx" id="17_rcnf3"]
+[ext_resource type="PackedScene" uid="uid://dqdkh6kn44y5d" path="res://assets/enemy-ufo-d.fbx" id="18_snbmk"]
+[ext_resource type="PackedScene" uid="uid://c0qhprf6yyobt" path="res://assets/selection-a.fbx" id="19_tjyo8"]
+[ext_resource type="PackedScene" uid="uid://c2xw3kxuq1sdn" path="res://assets/selection-b.fbx" id="20_bjvm4"]
+[ext_resource type="PackedScene" uid="uid://cu8t0rlkfvejq" path="res://assets/snow-detail-crystal-large.fbx" id="21_gq8k6"]
+[ext_resource type="PackedScene" uid="uid://dfgijmx6di4aq" path="res://assets/snow-detail-crystal.fbx" id="22_a5nla"]
+[ext_resource type="PackedScene" uid="uid://jd3ilk2mbhse" path="res://assets/snow-detail-dirt-large.fbx" id="23_wduqk"]
+[ext_resource type="PackedScene" uid="uid://dje5rhhb2olqo" path="res://assets/snow-detail-dirt.fbx" id="24_a7vou"]
+[ext_resource type="PackedScene" uid="uid://vc3oi7gkch5c" path="res://assets/snow-detail-rocks-large.fbx" id="25_07evg"]
+[ext_resource type="PackedScene" uid="uid://bn34gjw2f15hs" path="res://assets/snow-detail-rocks.fbx" id="26_5ciei"]
+[ext_resource type="PackedScene" uid="uid://xdro1ukhlgvj" path="res://assets/snow-detail-tree-large.fbx" id="27_4wxwb"]
+[ext_resource type="PackedScene" uid="uid://ri3mg7lr76ng" path="res://assets/snow-detail-tree.fbx" id="28_kwiyi"]
+[ext_resource type="PackedScene" uid="uid://cxr206g063t5s" path="res://assets/snow-tile-bump.fbx" id="29_f05yh"]
+[ext_resource type="PackedScene" uid="uid://dtf4h6w8i4wvg" path="res://assets/snow-tile-corner-inner.fbx" id="30_n5bwv"]
+[ext_resource type="PackedScene" uid="uid://cr6yie2rdoy07" path="res://assets/snow-tile-corner-large.fbx" id="31_ous2l"]
+[ext_resource type="PackedScene" uid="uid://cu287d6ia56xl" path="res://assets/snow-tile-corner-outer.fbx" id="32_2p6tk"]
+[ext_resource type="PackedScene" uid="uid://cjw8fgsq5vccm" path="res://assets/snow-tile-corner-round.fbx" id="33_nlekw"]
+[ext_resource type="PackedScene" uid="uid://bkjayw8tv88f3" path="res://assets/snow-tile-corner-square.fbx" id="34_8uhkp"]
+[ext_resource type="PackedScene" uid="uid://da4ye2qq3h4oc" path="res://assets/snow-tile-crossing.fbx" id="35_ypudk"]
+[ext_resource type="PackedScene" uid="uid://c53o2x4cd32y8" path="res://assets/snow-tile-crystal.fbx" id="36_yeg2k"]
+[ext_resource type="PackedScene" uid="uid://de7bj0by4mdvj" path="res://assets/snow-tile-dirt.fbx" id="37_b117f"]
+[ext_resource type="PackedScene" uid="uid://blq4aik7cxwkb" path="res://assets/snow-tile-end-round.fbx" id="38_sdqx3"]
+[ext_resource type="PackedScene" uid="uid://broi2i31lvltx" path="res://assets/snow-tile-end.fbx" id="39_m6oi8"]
+[ext_resource type="PackedScene" uid="uid://baikba04tgb8g" path="res://assets/snow-tile-hill.fbx" id="40_nnmuq"]
+[ext_resource type="PackedScene" uid="uid://c8muj4512lpvl" path="res://assets/snow-tile-river-bridge.fbx" id="41_qxos2"]
+[ext_resource type="PackedScene" uid="uid://b6yuumwdkp6dx" path="res://assets/snow-tile-river-corner.fbx" id="42_bg883"]
+[ext_resource type="PackedScene" uid="uid://da21axyj1cnpi" path="res://assets/snow-tile-river-slope-large.fbx" id="43_wt3wy"]
+[ext_resource type="PackedScene" uid="uid://dwjnhk5ue8iad" path="res://assets/snow-tile-river-slope.fbx" id="44_bnll3"]
+[ext_resource type="PackedScene" uid="uid://dsht14hhnpj8x" path="res://assets/snow-tile-river-straight.fbx" id="45_fiopc"]
+[ext_resource type="PackedScene" uid="uid://42feo578tcki" path="res://assets/snow-tile-river-transition.fbx" id="46_mgd0k"]
+[ext_resource type="PackedScene" uid="uid://pcj7or6qeyaf" path="res://assets/snow-tile-river-waterfall.fbx" id="47_78p00"]
+[ext_resource type="PackedScene" uid="uid://cp8jhnl3sbu7d" path="res://assets/snow-tile-rock.fbx" id="48_e7dtc"]
+[ext_resource type="PackedScene" uid="uid://b6ux5f3d51mj5" path="res://assets/snow-tile-slope.fbx" id="49_rjlwx"]
+[ext_resource type="PackedScene" uid="uid://byyee8g75wmou" path="res://assets/snow-tile-spawn-end-round.fbx" id="50_wftlw"]
+[ext_resource type="PackedScene" uid="uid://d0krabkvo5fn" path="res://assets/snow-tile-spawn-end.fbx" id="51_3ugyd"]
+[ext_resource type="PackedScene" uid="uid://b3khsvsdmg2ep" path="res://assets/snow-tile-spawn-round.fbx" id="52_lacv5"]
+[ext_resource type="PackedScene" uid="uid://b7eij36ajqv7e" path="res://assets/snow-tile-spawn.fbx" id="53_f5gc1"]
+[ext_resource type="PackedScene" uid="uid://dhr8p75uf1jwf" path="res://assets/snow-tile-split.fbx" id="54_ybmhy"]
+[ext_resource type="PackedScene" uid="uid://sb0o2asq002u" path="res://assets/snow-tile-straight-slope-large.fbx" id="55_j5jft"]
+[ext_resource type="PackedScene" uid="uid://q3aeidypk0ra" path="res://assets/snow-tile-straight-slope.fbx" id="56_dlufs"]
+[ext_resource type="PackedScene" uid="uid://divivljfixr1n" path="res://assets/snow-tile-straight.fbx" id="57_4v75d"]
+[ext_resource type="PackedScene" uid="uid://cpqquk3qtxdkc" path="res://assets/snow-tile-transition.fbx" id="58_6kmmg"]
+[ext_resource type="PackedScene" uid="uid://dssek7mwineqp" path="res://assets/snow-tile-tree-double.fbx" id="59_473lh"]
+[ext_resource type="PackedScene" uid="uid://g0d3c26e27t4" path="res://assets/snow-tile-tree-quad.fbx" id="60_ftabw"]
+[ext_resource type="PackedScene" uid="uid://dxfpjm6eysyv5" path="res://assets/snow-tile-tree.fbx" id="61_y5qfn"]
+[ext_resource type="PackedScene" uid="uid://dnei6nom2yu7d" path="res://assets/snow-tile-wide-corner.fbx" id="62_cv3qx"]
+[ext_resource type="PackedScene" uid="uid://cjad8y5vsavpw" path="res://assets/snow-tile-wide-split.fbx" id="63_8llrs"]
+[ext_resource type="PackedScene" uid="uid://ctesksd7dk0yf" path="res://assets/snow-tile-wide-straight.fbx" id="64_csixw"]
+[ext_resource type="PackedScene" uid="uid://qu8uqqrrxer0" path="res://assets/snow-tile-wide-transition.fbx" id="65_orvgj"]
+[ext_resource type="PackedScene" uid="uid://mdpqira8rll8" path="res://assets/snow-tile.fbx" id="66_r781b"]
+[ext_resource type="PackedScene" uid="uid://bykrk4nq484bs" path="res://assets/snow-wood-structure-high-part.fbx" id="67_vso4t"]
+[ext_resource type="PackedScene" uid="uid://pgpoecud7r5" path="res://assets/snow-wood-structure-high.fbx" id="68_b3yel"]
+[ext_resource type="PackedScene" uid="uid://drpbjfr5yh03y" path="res://assets/snow-wood-structure-part.fbx" id="69_c8na1"]
+[ext_resource type="PackedScene" uid="uid://bwxo2cj85twho" path="res://assets/snow-wood-structure.fbx" id="70_ludxg"]
+[ext_resource type="PackedScene" uid="uid://durdnrrwekjlg" path="res://assets/spawn-round.fbx" id="71_qaim6"]
+[ext_resource type="PackedScene" uid="uid://fho44thamy0t" path="res://assets/spawn-square.fbx" id="72_644dt"]
+[ext_resource type="PackedScene" uid="uid://cjnvec4gbbal5" path="res://assets/tile-bump.fbx" id="73_aqv4t"]
+[ext_resource type="PackedScene" uid="uid://xxiddljvkjfq" path="res://assets/tile-corner-inner.fbx" id="74_sfmhr"]
+[ext_resource type="PackedScene" uid="uid://cs087fvgql6xv" path="res://assets/tile-corner-large.fbx" id="75_v7krr"]
+[ext_resource type="PackedScene" uid="uid://biultd4bjpgd3" path="res://assets/tile-corner-outer.fbx" id="76_ddwg6"]
+[ext_resource type="PackedScene" uid="uid://d2nuo57q3qbhv" path="res://assets/tile-corner-round.fbx" id="77_twkuh"]
+[ext_resource type="PackedScene" uid="uid://b7bp6ou26pfcn" path="res://assets/tile-corner-square.fbx" id="78_xay4o"]
+[ext_resource type="PackedScene" uid="uid://cq87xp6g7ea7j" path="res://assets/tile-crossing.fbx" id="79_bdnap"]
+[ext_resource type="PackedScene" uid="uid://cbxshrtgonls0" path="res://assets/tile-crystal.fbx" id="80_4ke2b"]
+[ext_resource type="PackedScene" uid="uid://c2t2478t0n8ag" path="res://assets/tile-dirt.fbx" id="81_3aech"]
+[ext_resource type="PackedScene" uid="uid://cj283b3iib8hk" path="res://assets/tile-end-round.fbx" id="82_b8s4u"]
+[ext_resource type="PackedScene" uid="uid://du37lqnyd3d23" path="res://assets/tile-end.fbx" id="83_amkr1"]
+[ext_resource type="PackedScene" uid="uid://bat6jb3kip0kh" path="res://assets/tile-hill.fbx" id="84_lsk5b"]
+[ext_resource type="PackedScene" uid="uid://bftqdwpmn0gmx" path="res://assets/tile-river-bridge.fbx" id="85_0apga"]
+[ext_resource type="PackedScene" uid="uid://bs5oflbbhckmu" path="res://assets/tile-river-corner.fbx" id="86_fspvv"]
+[ext_resource type="PackedScene" uid="uid://b2ewf580tsx6" path="res://assets/tile-river-slope-large.fbx" id="87_dlyim"]
+[ext_resource type="PackedScene" uid="uid://r8uo2ru6pal0" path="res://assets/tile-river-slope.fbx" id="88_s8xry"]
+[ext_resource type="PackedScene" uid="uid://dxof417842vmj" path="res://assets/tile-river-straight.fbx" id="89_0piro"]
+[ext_resource type="PackedScene" uid="uid://dog5i1b587yxb" path="res://assets/tile-river-transition.fbx" id="90_b36ud"]
+[ext_resource type="PackedScene" uid="uid://ftmynbhgkh8i" path="res://assets/tile-river-waterfall.fbx" id="91_yssqi"]
+[ext_resource type="PackedScene" uid="uid://b70o4hgr4hke3" path="res://assets/tile-rock.fbx" id="92_7pyuh"]
+[ext_resource type="PackedScene" uid="uid://cmkp5wdjv0crl" path="res://assets/tile-slope.fbx" id="93_lylu6"]
+[ext_resource type="PackedScene" uid="uid://brevn70jj0oir" path="res://assets/tile-spawn-end-round.fbx" id="94_nfl26"]
+[ext_resource type="PackedScene" uid="uid://1qvcoepe5g1" path="res://assets/tile-spawn-end.fbx" id="95_q2tu6"]
+[ext_resource type="PackedScene" uid="uid://dgoirjwir2dfm" path="res://assets/tile-spawn-round.fbx" id="96_2un1c"]
+[ext_resource type="PackedScene" uid="uid://bucq2usewaf5j" path="res://assets/tile-spawn.fbx" id="97_7veue"]
+[ext_resource type="PackedScene" uid="uid://cxuigp1y7x33c" path="res://assets/tile-split.fbx" id="98_lwr4l"]
+[ext_resource type="PackedScene" uid="uid://d2fbnks8drqgm" path="res://assets/tile-straight-slope-large.fbx" id="99_6c8j5"]
+[ext_resource type="PackedScene" uid="uid://b7v84ruechqec" path="res://assets/tile-straight-slope.fbx" id="100_r5x7j"]
+[ext_resource type="PackedScene" uid="uid://clh25i00yyskr" path="res://assets/tile-straight.fbx" id="101_q1owu"]
+[ext_resource type="PackedScene" uid="uid://bhobuxb6c1yek" path="res://assets/tile-transition.fbx" id="102_t62y1"]
+[ext_resource type="PackedScene" uid="uid://6ekyv5p6rn77" path="res://assets/tile-tree-double.fbx" id="103_l7jnw"]
+[ext_resource type="PackedScene" uid="uid://2hmfawtn4pm0" path="res://assets/tile-tree-quad.fbx" id="104_b61qu"]
+[ext_resource type="PackedScene" uid="uid://hnb53aex12yv" path="res://assets/tile-tree.fbx" id="105_356c3"]
+[ext_resource type="PackedScene" uid="uid://cr8qlnt0v4368" path="res://assets/tile-wide-corner.fbx" id="106_rodgn"]
+[ext_resource type="PackedScene" uid="uid://dnpq6mq6k1f2t" path="res://assets/tile-wide-split.fbx" id="107_pkvtp"]
+[ext_resource type="PackedScene" uid="uid://4celf2xfe37p" path="res://assets/tile-wide-straight.fbx" id="108_5fwgq"]
+[ext_resource type="PackedScene" uid="uid://cpi3do6mdv1om" path="res://assets/tile-wide-transition.fbx" id="109_75oue"]
+[ext_resource type="PackedScene" uid="uid://d1dlipgux7a0q" path="res://assets/tile.fbx" id="110_mm051"]
+[ext_resource type="PackedScene" uid="uid://45uggttr0mvs" path="res://assets/tower-round-base.fbx" id="111_8lu4l"]
+[ext_resource type="PackedScene" uid="uid://2utcehsjwd2d" path="res://assets/tower-round-bottom-a.fbx" id="112_d3vgs"]
+[ext_resource type="PackedScene" uid="uid://bn5rv4nnokr83" path="res://assets/tower-round-bottom-b.fbx" id="113_r8ihx"]
+[ext_resource type="PackedScene" uid="uid://hp0q6pdiw1cr" path="res://assets/tower-round-bottom-c.fbx" id="114_o7oif"]
+[ext_resource type="PackedScene" uid="uid://byey3e1q2qrli" path="res://assets/tower-round-build-a.fbx" id="115_ex3h8"]
+[ext_resource type="PackedScene" uid="uid://1vdpccm7d10t" path="res://assets/tower-round-build-b.fbx" id="116_oniuu"]
+[ext_resource type="PackedScene" uid="uid://dub3akjhc427p" path="res://assets/tower-round-build-c.fbx" id="117_qa4wl"]
+[ext_resource type="PackedScene" uid="uid://d8mpuoa1y0vr" path="res://assets/tower-round-build-d.fbx" id="118_x18st"]
+[ext_resource type="PackedScene" uid="uid://b8so1vlmxa3uu" path="res://assets/tower-round-build-e.fbx" id="119_k644i"]
+[ext_resource type="PackedScene" uid="uid://bs6gfes8glose" path="res://assets/tower-round-build-f.fbx" id="120_njaou"]
+[ext_resource type="PackedScene" uid="uid://s6kkmbi7y8ku" path="res://assets/tower-round-crystals.fbx" id="121_rq1fw"]
+[ext_resource type="PackedScene" uid="uid://y5110na2fwj4" path="res://assets/tower-round-middle-a.fbx" id="122_fntso"]
+[ext_resource type="PackedScene" uid="uid://cpx5s5tft8gr4" path="res://assets/tower-round-middle-b.fbx" id="123_rc218"]
+[ext_resource type="PackedScene" uid="uid://cmr71dprvthp5" path="res://assets/tower-round-middle-c.fbx" id="124_vcagp"]
+[ext_resource type="PackedScene" uid="uid://x0y1jfc87elc" path="res://assets/tower-round-roof-a.fbx" id="125_ptmhy"]
+[ext_resource type="PackedScene" uid="uid://coxycxd0856vm" path="res://assets/tower-round-roof-b.fbx" id="126_eaawd"]
+[ext_resource type="PackedScene" uid="uid://dg4huxdep67py" path="res://assets/tower-round-roof-c.fbx" id="127_tftll"]
+[ext_resource type="PackedScene" uid="uid://0tjlvto4gtr7" path="res://assets/tower-round-top-a.fbx" id="128_f3kkm"]
+[ext_resource type="PackedScene" uid="uid://dglqbyt57ccpo" path="res://assets/tower-round-top-b.fbx" id="129_rf2jt"]
+[ext_resource type="PackedScene" uid="uid://bxyfngdrunm8e" path="res://assets/tower-round-top-c.fbx" id="130_rpo4n"]
+[ext_resource type="PackedScene" uid="uid://cfedhe8pfw2jy" path="res://assets/tower-square-bottom-a.fbx" id="131_j8nk5"]
+[ext_resource type="PackedScene" uid="uid://dijjt6s3yx6gk" path="res://assets/tower-square-bottom-b.fbx" id="132_fxixf"]
+[ext_resource type="PackedScene" uid="uid://dd47aee41u1qq" path="res://assets/tower-square-bottom-c.fbx" id="133_gtoc6"]
+[ext_resource type="PackedScene" uid="uid://cgwqv3g8xmg0x" path="res://assets/tower-square-build-a.fbx" id="134_fc8gt"]
+[ext_resource type="PackedScene" uid="uid://c428t8xlsm237" path="res://assets/tower-square-build-b.fbx" id="135_0jdje"]
+[ext_resource type="PackedScene" uid="uid://12gbve5xhuts" path="res://assets/tower-square-build-c.fbx" id="136_xuioe"]
+[ext_resource type="PackedScene" uid="uid://c046ngj2yb8ub" path="res://assets/tower-square-build-d.fbx" id="137_e3edg"]
+[ext_resource type="PackedScene" uid="uid://bbgcxqmyjbs2h" path="res://assets/tower-square-build-e.fbx" id="138_et1g6"]
+[ext_resource type="PackedScene" uid="uid://c01vkvmna11na" path="res://assets/tower-square-build-f.fbx" id="139_8ktph"]
+[ext_resource type="PackedScene" uid="uid://dkv4p130fofu3" path="res://assets/tower-square-middle-a.fbx" id="140_k6gsp"]
+[ext_resource type="PackedScene" uid="uid://dxkbqq7xk5aos" path="res://assets/tower-square-middle-b.fbx" id="141_2n47c"]
+[ext_resource type="PackedScene" uid="uid://1rj0dqikbeno" path="res://assets/tower-square-middle-c.fbx" id="142_2gpb1"]
+[ext_resource type="PackedScene" uid="uid://deb3xb3yoini0" path="res://assets/tower-square-roof-a.fbx" id="143_wjisc"]
+[ext_resource type="PackedScene" uid="uid://v01gojtkxyfs" path="res://assets/tower-square-roof-b.fbx" id="144_6sw30"]
+[ext_resource type="PackedScene" uid="uid://bhje63aqm8rs4" path="res://assets/tower-square-roof-c.fbx" id="145_teomt"]
+[ext_resource type="PackedScene" uid="uid://df2ox5aabl6qr" path="res://assets/tower-square-top-a.fbx" id="146_hom2c"]
+[ext_resource type="PackedScene" uid="uid://daudg1rhllwu6" path="res://assets/tower-square-top-b.fbx" id="147_a5if1"]
+[ext_resource type="PackedScene" uid="uid://cugmjby06txrc" path="res://assets/tower-square-top-c.fbx" id="148_npsuo"]
+[ext_resource type="PackedScene" uid="uid://dpxsvivb56gi8" path="res://assets/weapon-ammo-arrow.fbx" id="149_lqggn"]
+[ext_resource type="PackedScene" uid="uid://b24ej15ag82vx" path="res://assets/weapon-ammo-boulder.fbx" id="150_4trdj"]
+[ext_resource type="PackedScene" uid="uid://rjjs0qqn8wa5" path="res://assets/weapon-ammo-bullet.fbx" id="151_46upl"]
+[ext_resource type="PackedScene" uid="uid://cudvs5u3ysk5v" path="res://assets/weapon-ammo-cannonball.fbx" id="152_76qub"]
+[ext_resource type="PackedScene" uid="uid://chkcj8pmhitnv" path="res://assets/weapon-ballista.fbx" id="153_hg0jo"]
+[ext_resource type="PackedScene" uid="uid://burmxbojnmy5v" path="res://assets/weapon-cannon.fbx" id="154_7h8g5"]
+[ext_resource type="PackedScene" uid="uid://ceg6lh3una7pf" path="res://assets/weapon-catapult.fbx" id="155_ywjiv"]
+[ext_resource type="PackedScene" uid="uid://hpdqu2a50qan" path="res://assets/weapon-turret.fbx" id="156_r47pe"]
+[ext_resource type="PackedScene" uid="uid://7lwupwcuigpw" path="res://assets/wood-structure-high-part.fbx" id="157_t3833"]
+[ext_resource type="PackedScene" uid="uid://olc555fwe33n" path="res://assets/wood-structure-high.fbx" id="158_bgvnq"]
+[ext_resource type="PackedScene" uid="uid://c8mkg64akh0yt" path="res://assets/wood-structure-part.fbx" id="159_uhwel"]
+[ext_resource type="PackedScene" uid="uid://co8jgxlm75j2n" path="res://assets/wood-structure.fbx" id="160_jpvm4"]
+
+[node name="tiles" type="Node3D" unique_id=705456703]
+
+[node name="detail-crystal-large" parent="." unique_id=1869451857 instance=ExtResource("1_f34x5")]
+
+[node name="detail-crystal" parent="." unique_id=169498382 instance=ExtResource("2_1ivfc")]
+
+[node name="detail-dirt-large" parent="." unique_id=211717071 instance=ExtResource("3_j3kt1")]
+
+[node name="detail-dirt" parent="." unique_id=1984827548 instance=ExtResource("4_a1u8e")]
+
+[node name="detail-rocks-large" parent="." unique_id=521090215 instance=ExtResource("5_qxeb5")]
+
+[node name="detail-rocks" parent="." unique_id=1977275130 instance=ExtResource("6_uj7hi")]
+
+[node name="detail-tree-large" parent="." unique_id=1513678531 instance=ExtResource("7_bkhx1")]
+
+[node name="detail-tree" parent="." unique_id=584890857 instance=ExtResource("8_8eqer")]
+
+[node name="enemy-ufo-a-weapon" parent="." unique_id=1613137981 instance=ExtResource("9_a7254")]
+
+[node name="enemy-ufo-a" parent="." unique_id=789342113 instance=ExtResource("10_pat6g")]
+
+[node name="enemy-ufo-b-weapon" parent="." unique_id=602707536 instance=ExtResource("11_h2slc")]
+
+[node name="enemy-ufo-b" parent="." unique_id=628635914 instance=ExtResource("12_fedvy")]
+
+[node name="enemy-ufo-beam-burst" parent="." unique_id=1441871365 instance=ExtResource("13_wksml")]
+
+[node name="enemy-ufo-beam" parent="." unique_id=1485920247 instance=ExtResource("14_2tiq3")]
+
+[node name="enemy-ufo-c-weapon" parent="." unique_id=1761030646 instance=ExtResource("15_bxrjs")]
+
+[node name="enemy-ufo-c" parent="." unique_id=486449975 instance=ExtResource("16_t26bq")]
+
+[node name="enemy-ufo-d-weapon" parent="." unique_id=1100532602 instance=ExtResource("17_rcnf3")]
+
+[node name="enemy-ufo-d" parent="." unique_id=765748733 instance=ExtResource("18_snbmk")]
+
+[node name="selection-a" parent="." unique_id=1558379515 instance=ExtResource("19_tjyo8")]
+
+[node name="selection-b" parent="." unique_id=1169251724 instance=ExtResource("20_bjvm4")]
+
+[node name="snow-detail-crystal-large" parent="." unique_id=1246748792 instance=ExtResource("21_gq8k6")]
+
+[node name="snow-detail-crystal" parent="." unique_id=661448082 instance=ExtResource("22_a5nla")]
+
+[node name="snow-detail-dirt-large" parent="." unique_id=785097442 instance=ExtResource("23_wduqk")]
+
+[node name="snow-detail-dirt" parent="." unique_id=478094759 instance=ExtResource("24_a7vou")]
+
+[node name="snow-detail-rocks-large" parent="." unique_id=1710926953 instance=ExtResource("25_07evg")]
+
+[node name="snow-detail-rocks" parent="." unique_id=180444046 instance=ExtResource("26_5ciei")]
+
+[node name="snow-detail-tree-large" parent="." unique_id=1666954457 instance=ExtResource("27_4wxwb")]
+
+[node name="snow-detail-tree" parent="." unique_id=195768053 instance=ExtResource("28_kwiyi")]
+
+[node name="snow-tile-bump" parent="." unique_id=466051239 instance=ExtResource("29_f05yh")]
+
+[node name="snow-tile-corner-inner" parent="." unique_id=1498456655 instance=ExtResource("30_n5bwv")]
+
+[node name="snow-tile-corner-large" parent="." unique_id=1676451456 instance=ExtResource("31_ous2l")]
+
+[node name="snow-tile-corner-outer" parent="." unique_id=17601684 instance=ExtResource("32_2p6tk")]
+
+[node name="snow-tile-corner-round" parent="." unique_id=1634609150 instance=ExtResource("33_nlekw")]
+
+[node name="snow-tile-corner-square" parent="." unique_id=820883941 instance=ExtResource("34_8uhkp")]
+
+[node name="snow-tile-crossing" parent="." unique_id=75855425 instance=ExtResource("35_ypudk")]
+
+[node name="snow-tile-crystal" parent="." unique_id=1945377008 instance=ExtResource("36_yeg2k")]
+
+[node name="snow-tile-dirt" parent="." unique_id=491580507 instance=ExtResource("37_b117f")]
+
+[node name="snow-tile-end-round" parent="." unique_id=1425354755 instance=ExtResource("38_sdqx3")]
+
+[node name="snow-tile-end" parent="." unique_id=1075711005 instance=ExtResource("39_m6oi8")]
+
+[node name="snow-tile-hill" parent="." unique_id=131623252 instance=ExtResource("40_nnmuq")]
+
+[node name="snow-tile-river-bridge" parent="." unique_id=500424832 instance=ExtResource("41_qxos2")]
+
+[node name="snow-tile-river-corner" parent="." unique_id=1641178089 instance=ExtResource("42_bg883")]
+
+[node name="snow-tile-river-slope-large" parent="." unique_id=1510321086 instance=ExtResource("43_wt3wy")]
+
+[node name="snow-tile-river-slope" parent="." unique_id=1783452382 instance=ExtResource("44_bnll3")]
+
+[node name="snow-tile-river-straight" parent="." unique_id=2104680244 instance=ExtResource("45_fiopc")]
+
+[node name="snow-tile-river-transition" parent="." unique_id=1242764362 instance=ExtResource("46_mgd0k")]
+
+[node name="snow-tile-river-waterfall" parent="." unique_id=512612374 instance=ExtResource("47_78p00")]
+
+[node name="snow-tile-rock" parent="." unique_id=1127946544 instance=ExtResource("48_e7dtc")]
+
+[node name="snow-tile-slope" parent="." unique_id=203589751 instance=ExtResource("49_rjlwx")]
+
+[node name="snow-tile-spawn-end-round" parent="." unique_id=1688177065 instance=ExtResource("50_wftlw")]
+
+[node name="snow-tile-spawn-end" parent="." unique_id=1801969063 instance=ExtResource("51_3ugyd")]
+
+[node name="snow-tile-spawn-round" parent="." unique_id=1210283803 instance=ExtResource("52_lacv5")]
+
+[node name="snow-tile-spawn" parent="." unique_id=182382882 instance=ExtResource("53_f5gc1")]
+
+[node name="snow-tile-split" parent="." unique_id=91968570 instance=ExtResource("54_ybmhy")]
+
+[node name="snow-tile-straight-slope-large" parent="." unique_id=1733917761 instance=ExtResource("55_j5jft")]
+
+[node name="snow-tile-straight-slope" parent="." unique_id=744267178 instance=ExtResource("56_dlufs")]
+
+[node name="snow-tile-straight" parent="." unique_id=1242349562 instance=ExtResource("57_4v75d")]
+
+[node name="snow-tile-transition" parent="." unique_id=917546342 instance=ExtResource("58_6kmmg")]
+
+[node name="snow-tile-tree-double" parent="." unique_id=1656132751 instance=ExtResource("59_473lh")]
+
+[node name="snow-tile-tree-quad" parent="." unique_id=908695671 instance=ExtResource("60_ftabw")]
+
+[node name="snow-tile-tree" parent="." unique_id=1363824393 instance=ExtResource("61_y5qfn")]
+
+[node name="snow-tile-wide-corner" parent="." unique_id=112656754 instance=ExtResource("62_cv3qx")]
+
+[node name="snow-tile-wide-split" parent="." unique_id=461368901 instance=ExtResource("63_8llrs")]
+
+[node name="snow-tile-wide-straight" parent="." unique_id=21086557 instance=ExtResource("64_csixw")]
+
+[node name="snow-tile-wide-transition" parent="." unique_id=1918864354 instance=ExtResource("65_orvgj")]
+
+[node name="snow-tile" parent="." unique_id=327504575 instance=ExtResource("66_r781b")]
+
+[node name="snow-wood-structure-high-part" parent="." unique_id=1199871948 instance=ExtResource("67_vso4t")]
+
+[node name="snow-wood-structure-high" parent="." unique_id=1667329898 instance=ExtResource("68_b3yel")]
+
+[node name="snow-wood-structure-part" parent="." unique_id=99683151 instance=ExtResource("69_c8na1")]
+
+[node name="snow-wood-structure" parent="." unique_id=2017041525 instance=ExtResource("70_ludxg")]
+
+[node name="spawn-round" parent="." unique_id=594995185 instance=ExtResource("71_qaim6")]
+
+[node name="spawn-square" parent="." unique_id=2081928797 instance=ExtResource("72_644dt")]
+
+[node name="tile-bump" parent="." unique_id=288501802 instance=ExtResource("73_aqv4t")]
+
+[node name="tile-corner-inner" parent="." unique_id=1762143828 instance=ExtResource("74_sfmhr")]
+
+[node name="tile-corner-large" parent="." unique_id=49651072 instance=ExtResource("75_v7krr")]
+
+[node name="tile-corner-outer" parent="." unique_id=1220467490 instance=ExtResource("76_ddwg6")]
+
+[node name="tile-corner-round" parent="." unique_id=1664753475 instance=ExtResource("77_twkuh")]
+
+[node name="tile-corner-square" parent="." unique_id=46675718 instance=ExtResource("78_xay4o")]
+
+[node name="tile-crossing" parent="." unique_id=986655258 instance=ExtResource("79_bdnap")]
+
+[node name="tile-crystal" parent="." unique_id=619946724 instance=ExtResource("80_4ke2b")]
+
+[node name="tile-dirt" parent="." unique_id=1570606327 instance=ExtResource("81_3aech")]
+
+[node name="tile-end-round" parent="." unique_id=1348711650 instance=ExtResource("82_b8s4u")]
+
+[node name="tile-end" parent="." unique_id=2055908748 instance=ExtResource("83_amkr1")]
+
+[node name="tile-hill" parent="." unique_id=1053687207 instance=ExtResource("84_lsk5b")]
+
+[node name="tile-river-bridge" parent="." unique_id=802733297 instance=ExtResource("85_0apga")]
+
+[node name="tile-river-corner" parent="." unique_id=1658752356 instance=ExtResource("86_fspvv")]
+
+[node name="tile-river-slope-large" parent="." unique_id=1436962818 instance=ExtResource("87_dlyim")]
+
+[node name="tile-river-slope" parent="." unique_id=1328249787 instance=ExtResource("88_s8xry")]
+
+[node name="tile-river-straight" parent="." unique_id=432961424 instance=ExtResource("89_0piro")]
+
+[node name="tile-river-transition" parent="." unique_id=1438646288 instance=ExtResource("90_b36ud")]
+
+[node name="tile-river-waterfall" parent="." unique_id=1134686467 instance=ExtResource("91_yssqi")]
+
+[node name="tile-rock" parent="." unique_id=1085188473 instance=ExtResource("92_7pyuh")]
+
+[node name="tile-slope" parent="." unique_id=1992160682 instance=ExtResource("93_lylu6")]
+
+[node name="tile-spawn-end-round" parent="." unique_id=1661047769 instance=ExtResource("94_nfl26")]
+
+[node name="tile-spawn-end" parent="." unique_id=2032402884 instance=ExtResource("95_q2tu6")]
+
+[node name="tile-spawn-round" parent="." unique_id=683465087 instance=ExtResource("96_2un1c")]
+
+[node name="tile-spawn" parent="." unique_id=2120963871 instance=ExtResource("97_7veue")]
+
+[node name="tile-split" parent="." unique_id=569545336 instance=ExtResource("98_lwr4l")]
+
+[node name="tile-straight-slope-large" parent="." unique_id=973777827 instance=ExtResource("99_6c8j5")]
+
+[node name="tile-straight-slope" parent="." unique_id=900082231 instance=ExtResource("100_r5x7j")]
+
+[node name="tile-straight" parent="." unique_id=2086643728 instance=ExtResource("101_q1owu")]
+
+[node name="tile-transition" parent="." unique_id=1383317556 instance=ExtResource("102_t62y1")]
+
+[node name="tile-tree-double" parent="." unique_id=111849533 instance=ExtResource("103_l7jnw")]
+
+[node name="tile-tree-quad" parent="." unique_id=884356056 instance=ExtResource("104_b61qu")]
+
+[node name="tile-tree" parent="." unique_id=1716989648 instance=ExtResource("105_356c3")]
+
+[node name="tile-wide-corner" parent="." unique_id=1315373690 instance=ExtResource("106_rodgn")]
+
+[node name="tile-wide-split" parent="." unique_id=735253866 instance=ExtResource("107_pkvtp")]
+
+[node name="tile-wide-straight" parent="." unique_id=256171176 instance=ExtResource("108_5fwgq")]
+
+[node name="tile-wide-transition" parent="." unique_id=225283896 instance=ExtResource("109_75oue")]
+
+[node name="tile" parent="." unique_id=899972447 instance=ExtResource("110_mm051")]
+
+[node name="tower-round-base" parent="." unique_id=1502093764 instance=ExtResource("111_8lu4l")]
+
+[node name="tower-round-bottom-a" parent="." unique_id=779734632 instance=ExtResource("112_d3vgs")]
+
+[node name="tower-round-bottom-b" parent="." unique_id=1114158566 instance=ExtResource("113_r8ihx")]
+
+[node name="tower-round-bottom-c" parent="." unique_id=259214597 instance=ExtResource("114_o7oif")]
+
+[node name="tower-round-build-a" parent="." unique_id=437730251 instance=ExtResource("115_ex3h8")]
+
+[node name="tower-round-build-b" parent="." unique_id=680116687 instance=ExtResource("116_oniuu")]
+
+[node name="tower-round-build-c" parent="." unique_id=188254464 instance=ExtResource("117_qa4wl")]
+
+[node name="tower-round-build-d" parent="." unique_id=1457593138 instance=ExtResource("118_x18st")]
+
+[node name="tower-round-build-e" parent="." unique_id=2099791283 instance=ExtResource("119_k644i")]
+
+[node name="tower-round-build-f" parent="." unique_id=1432295181 instance=ExtResource("120_njaou")]
+
+[node name="tower-round-crystals" parent="." unique_id=1060230602 instance=ExtResource("121_rq1fw")]
+
+[node name="tower-round-middle-a" parent="." unique_id=1177281596 instance=ExtResource("122_fntso")]
+
+[node name="tower-round-middle-b" parent="." unique_id=1844605922 instance=ExtResource("123_rc218")]
+
+[node name="tower-round-middle-c" parent="." unique_id=1263897967 instance=ExtResource("124_vcagp")]
+
+[node name="tower-round-roof-a" parent="." unique_id=1148739162 instance=ExtResource("125_ptmhy")]
+
+[node name="tower-round-roof-b" parent="." unique_id=494694503 instance=ExtResource("126_eaawd")]
+
+[node name="tower-round-roof-c" parent="." unique_id=342643185 instance=ExtResource("127_tftll")]
+
+[node name="tower-round-top-a" parent="." unique_id=1420066454 instance=ExtResource("128_f3kkm")]
+
+[node name="tower-round-top-b" parent="." unique_id=321252280 instance=ExtResource("129_rf2jt")]
+
+[node name="tower-round-top-c" parent="." unique_id=116116313 instance=ExtResource("130_rpo4n")]
+
+[node name="tower-square-bottom-a" parent="." unique_id=1552623100 instance=ExtResource("131_j8nk5")]
+
+[node name="tower-square-bottom-b" parent="." unique_id=1766083629 instance=ExtResource("132_fxixf")]
+
+[node name="tower-square-bottom-c" parent="." unique_id=1527682980 instance=ExtResource("133_gtoc6")]
+
+[node name="tower-square-build-a" parent="." unique_id=1261889900 instance=ExtResource("134_fc8gt")]
+
+[node name="tower-square-build-b" parent="." unique_id=669452097 instance=ExtResource("135_0jdje")]
+
+[node name="tower-square-build-c" parent="." unique_id=663308200 instance=ExtResource("136_xuioe")]
+
+[node name="tower-square-build-d" parent="." unique_id=441161564 instance=ExtResource("137_e3edg")]
+
+[node name="tower-square-build-e" parent="." unique_id=1183001737 instance=ExtResource("138_et1g6")]
+
+[node name="tower-square-build-f" parent="." unique_id=121563132 instance=ExtResource("139_8ktph")]
+
+[node name="tower-square-middle-a" parent="." unique_id=1111284331 instance=ExtResource("140_k6gsp")]
+
+[node name="tower-square-middle-b" parent="." unique_id=1892627768 instance=ExtResource("141_2n47c")]
+
+[node name="tower-square-middle-c" parent="." unique_id=1381500851 instance=ExtResource("142_2gpb1")]
+
+[node name="tower-square-roof-a" parent="." unique_id=1253621691 instance=ExtResource("143_wjisc")]
+
+[node name="tower-square-roof-b" parent="." unique_id=1579805178 instance=ExtResource("144_6sw30")]
+
+[node name="tower-square-roof-c" parent="." unique_id=1810869818 instance=ExtResource("145_teomt")]
+
+[node name="tower-square-top-a" parent="." unique_id=1538514125 instance=ExtResource("146_hom2c")]
+
+[node name="tower-square-top-b" parent="." unique_id=1613461290 instance=ExtResource("147_a5if1")]
+
+[node name="tower-square-top-c" parent="." unique_id=993506405 instance=ExtResource("148_npsuo")]
+
+[node name="weapon-ammo-arrow" parent="." unique_id=1736865033 instance=ExtResource("149_lqggn")]
+
+[node name="weapon-ammo-boulder" parent="." unique_id=473186237 instance=ExtResource("150_4trdj")]
+
+[node name="weapon-ammo-bullet" parent="." unique_id=537474585 instance=ExtResource("151_46upl")]
+
+[node name="weapon-ammo-cannonball" parent="." unique_id=1280871927 instance=ExtResource("152_76qub")]
+
+[node name="weapon-ballista" parent="." unique_id=423538936 instance=ExtResource("153_hg0jo")]
+
+[node name="weapon-cannon" parent="." unique_id=1605220965 instance=ExtResource("154_7h8g5")]
+
+[node name="weapon-catapult" parent="." unique_id=64532518 instance=ExtResource("155_ywjiv")]
+
+[node name="weapon-turret" parent="." unique_id=1841100427 instance=ExtResource("156_r47pe")]
+
+[node name="wood-structure-high-part" parent="." unique_id=1531294310 instance=ExtResource("157_t3833")]
+
+[node name="wood-structure-high" parent="." unique_id=25149909 instance=ExtResource("158_bgvnq")]
+
+[node name="wood-structure-part" parent="." unique_id=821753256 instance=ExtResource("159_uhwel")]
+
+[node name="wood-structure" parent="." unique_id=181600635 instance=ExtResource("160_jpvm4")]
