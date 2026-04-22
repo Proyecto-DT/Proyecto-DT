@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var path_follow = get_parent() # Asumiendo que es hijo de PathFollow2D
+@onready var path_follow = get_parent()
 
 var speed = 50
 var direccion: Vector3
