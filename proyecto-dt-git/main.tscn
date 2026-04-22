@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c7vfcbqddbnh8"]
+
+[ext_resource type="Script" uid="uid://bputwojyen5kv" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dtx4xoyocutle" path="res://assets/tile.fbx" id="2_0xm2m"]
+
+[node name="main" type="Node3D" unique_id=163296819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19084167, 2.429062, 5.5018406)
+script = ExtResource("1_ig7tw")
+camino_tile = ExtResource("2_0xm2m")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=973575615]
+transform = Transform3D(1, 0, 0, 0, 0.6027624, 0.79792076, 0, -0.79792076, 0.6027624, 5.1398573, 6.188238, 6.1978445)
+fov = 100.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2070456160]
+transform = Transform3D(-0.36787808, 0.7923828, -0.48661622, -0.7683841, 0.035680912, 0.63899356, 0.52369034, 0.6089799, 0.5957281, 17.575298, 17.304882, 0)
