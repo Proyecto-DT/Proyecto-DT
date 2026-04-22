@@ -1,6 +1,15 @@
 [gd_scene format=4 uid="uid://b6errkkwovh1x"]
 
 [ext_resource type="MeshLibrary" uid="uid://i2m61jm4eprv" path="res://assets/tiles.tres" id="1_a202f"]
+[ext_resource type="PackedScene" uid="uid://ba6h6kri7r08o" path="res://scenes/torreta_gomera.tscn" id="2_noarx"]
+[ext_resource type="Script" uid="uid://cjrfvvnxkn6j2" path="res://scripts/move_test_red_ant.gd" id="3_a0tk4"]
+
+[sub_resource type="Curve3D" id="Curve3D_noarx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.86559296, -0.13776779, 1.0967331, 0, 0, 0, 0, 0, 0, -0.5794449, -0.29222965, 32.335564, 0, 0, 0, 0, 0, 0, 16.569756, 2.315402, 29.854263, 0, 0, 0, 0, 0, 0, 16.677948, 2.4426007, 12.339546, 0, 0, 0, 0, 0, 0, -14.235855, 0.9172678, 12.911072, 0, 0, 0, 0, 0, 0, -24.314346, 0.916636, 17.51162),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a0tk4"]
 load_path = "res://.godot/imported/red ant.png-0404023d705ffe0d513abdbcfd05b292.s3tc.ctex"
@@ -41,6 +50,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nlv0q")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a0tk4"]
+height = 4.5
+radius = 1.0
+
 [node name="Node3D" type="Node3D" unique_id=1522368197]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1629370329]
@@ -59,6 +72,28 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
-[node name="RedAnt" type="MeshInstance3D" parent="." unique_id=238212493]
+[node name="TorretaGomera" parent="." unique_id=686651658 instance=ExtResource("2_noarx")]
+transform = Transform3D(-0.99956656, 0, -0.029439399, 0, 1, 0, 0.029439399, 0, -0.99956656, 7.7411275, 0.20705843, 8.557171)
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1038353429]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 6.784144, 0.10107708, 6.3220344)
+curve = SubResource("Curve3D_noarx")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1830750060]
+transform = Transform3D(-0.99995416, 4.5287346e-05, -0.00915938, 3.6379645e-12, 0.999983, 0.0049442267, 0.009159553, 0.0049440474, -0.99993527, -0.86559296, -0.13776779, 1.0967331)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Path3D/PathFollow3D" unique_id=1331832657]
+transform = Transform3D(1, 0, 9.313226e-10, 0, 0.99999994, 0, 0, 4.656613e-10, 0.9999999, -7.6293945e-06, 1.1920929e-07, 0)
+collision_mask = 0
+script = ExtResource("3_a0tk4")
+
+[node name="RedAnt" type="MeshInstance3D" parent="Path3D/PathFollow3D/CharacterBody3D" unique_id=238212493]
+transform = Transform3D(-0.99995786, 1.2681522e-12, 0.009159589, 4.5287572e-05, 0.9999879, 0.004944074, -0.009159479, 0.0049442793, -0.999946, -0.8755951, 0.13238287, 1.089428)
 mesh = SubResource("ArrayMesh_r3fl7")
+skeleton = NodePath("../../../..")
+
+[node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D/CharacterBody3D" unique_id=2138219997]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/CharacterBody3D/Area3D" unique_id=2090159145]
+transform = Transform3D(-0.99995786, -0.009159589, -4.0314943e-10, 4.5287572e-05, -0.004944118, 0.99998796, -0.009159479, 0.99994594, 0.0049443236, -0.071502686, 0.93456185, 0.6507416)
+shape = SubResource("CylinderShape3D_a0tk4")
