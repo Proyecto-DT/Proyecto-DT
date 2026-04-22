@@ -23,11 +23,11 @@ func genenerar_camino():
 		var choice:int = randi_range(0,2)
 		
 
-		if choice == 0 or x % 2 == 0:
+		if choice == 0 or x % 2 == 0 or x == _cuadricula_longitud-1:
 			x += 1
-		elif choice == 1 and y < _cuadricula_latitud:
+		elif choice == 1 and y < _cuadricula_latitud and not _camino.has(Vector2i(x, y+1)):
 			y += 1
-		elif choice == 2 and y > 0:
-			y -= 1	
+		elif choice == 2 and y > 0 and not _camino.has(Vector2i(x, y-1)):
+			y -= 1
 		
 	return _camino

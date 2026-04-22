@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://c7vfcbqddbnh8"]
 
 [ext_resource type="Script" uid="uid://bputwojyen5kv" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dtx4xoyocutle" path="res://assets/tile.fbx" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://d1dlipgux7a0q" path="res://assets/tile.fbx" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://clh25i00yyskr" path="res://assets/tile-straight.fbx" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d2nuo57q3qbhv" path="res://assets/tile-corner-round.fbx" id="3_1bvp3"]
 
 [node name="main" type="Node3D" unique_id=163296819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19084167, 2.429062, 5.5018406)
 script = ExtResource("1_ig7tw")
-camino_tile = ExtResource("2_0xm2m")
+tile_straight = ExtResource("2_h2yge")
+tile_esquina = ExtResource("3_1bvp3")
+tile_cesped = ExtResource("2_0xm2m")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=973575615]
-transform = Transform3D(1, 0, 0, 0, 0.6027624, 0.79792076, 0, -0.79792076, 0.6027624, 5.1398573, 6.188238, 6.1978445)
+transform = Transform3D(1, 0, 0, 0, 0.6207647, 0.783997, 0, -0.783997, 0.6207647, 8.273848, 4.509288, 3.553546)
 fov = 100.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2070456160]
-transform = Transform3D(-0.36787808, 0.7923828, -0.48661622, -0.7683841, 0.035680912, 0.63899356, 0.52369034, 0.6089799, 0.5957281, 17.575298, 17.304882, 0)
+transform = Transform3D(-0.01870674, 0.99676585, -0.07815331, -0.7683842, 0.035680883, 0.63899344, 0.63971543, 0.07200525, 0.76523167, 8.717601, 14.894268, 3.0860834)

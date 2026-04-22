@@ -1,6 +1,8 @@
 extends Node3D
 
-@export var camino_tile:PackedScene
+@export var tile_straight:PackedScene
+@export var tile_esquina:PackedScene
+@export var tile_cesped:PackedScene
 
 @export var mapa_latitud:int = 16
 @export var mapa_longitud:int = 9
@@ -13,9 +15,11 @@ func _ready():
 
 func _mostrar_camino():
 	var _camino:Array[Vector2i] = _generadorcaminos.genenerar_camino()
-	print(_camino)
+	while _camino.size() < 35:
+		_camino = _generadorcaminos.genenerar_camino()
+		print(_camino)
 	for elemento in _camino:	
-		var tile:Node3D = camino_tile.instantiate()
+		var tile:Node3D = tile_straight.instantiate()
 		add_child(tile)
 		tile.global_position = Vector3(elemento.x, 0, elemento.y)
 		
