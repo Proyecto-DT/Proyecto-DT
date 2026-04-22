@@ -1,14 +1,13 @@
 extends CharacterBody3D
 
-@onready var path_follow = get_parent()
+@onready var ruta_de_seguimiento = get_parent()
 
-var speed = 50
+@export var speed = 30
 var direccion: Vector3
 var posicion_anterior: Vector3
 
-
 func _ready():
-	posicion_anterior = path_follow.global_position
+	posicion_anterior = ruta_de_seguimiento.global_position
 
 func _physics_process(delta: float) -> void:
-	path_follow.progress += speed * delta
+	ruta_de_seguimiento.progress += speed * delta
