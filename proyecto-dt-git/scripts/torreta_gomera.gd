@@ -24,6 +24,11 @@ func _on_rango_area_exited(area: Area3D):
 	enemigo_en_rango.erase(area)
 	print(enemigo_en_rango.size())
 	
+	if enemigo_actual == area:
+		enemigo_actual = enemigo_en_rango[0] if enemigo_en_rango.size() > 0 else null
+		objetivo_enemigo_actual = false
+		obtener_progreso = 0
+	
 func rotacion_hacia_objetivo(objetivo, delta):
 	var vector_objetivo = $Hormiga.global_position.direction_to(Vector3(objetivo.global_position.x, global_position.y, objetivo.global_position.z))
 	var vector_objetivo_1 = $Torreta.global_position.direction_to(Vector3(objetivo.global_position.x, global_position.y, objetivo.global_position.z))
