@@ -31,3 +31,15 @@ func genenerar_camino():
 			y -= 1
 		
 	return _camino
+
+func get_tile_score(tile: Vector2i):
+	var score:int = 0
+	var x = tile.x
+	var y = tile.y
+	
+	score += 1 if _camino.has(Vector2(x,y-1)) else 0
+	score += 2 if _camino.has(Vector2(x+1,y)) else 0
+	score += 4 if _camino.has(Vector2(x,y+1)) else 0
+	score += 8 if _camino.has(Vector2(x-1,y)) else 0
+	
+	return score
