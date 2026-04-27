@@ -16,9 +16,9 @@ func _ready():
 	_mostrar_camino()
 
 func _mostrar_camino():
-	var _camino:Array[Vector2i] = _generadorcaminos.genenerar_camino()
+	var _camino:Array[Vector2i] = _generadorcaminos.generar_camino()
 	while _camino.size() < 35:
-		_camino = _generadorcaminos.genenerar_camino()
+		_camino = _generadorcaminos.generar_camino()
 
 	print(_camino)
 	for elemento in _camino:

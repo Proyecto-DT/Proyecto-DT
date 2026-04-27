@@ -10,10 +10,10 @@ func _init(longitud:int,latitud:int):
 	_cuadricula_latitud = latitud
 	_cuadricula_longitud = longitud
 
-func genenerar_camino():
-	_camino.clear()
+func generar_camino(): 
+	_camino.clear() #Borra el camino anterior, si existia alguno.
 	
-	var x = 0
+	var x = 0 
 	var y = int(_cuadricula_latitud/2)
 	
 	while x < _cuadricula_longitud:
@@ -37,9 +37,9 @@ func get_tile_score(tile: Vector2i):
 	var x = tile.x
 	var y = tile.y
 	
-	score += 1 if _camino.has(Vector2(x,y-1)) else 0
-	score += 2 if _camino.has(Vector2(x+1,y)) else 0
-	score += 4 if _camino.has(Vector2(x,y+1)) else 0
-	score += 8 if _camino.has(Vector2(x-1,y)) else 0
+	score += 1 if _camino.has(Vector2(x,y-1)) else 0 #Score 1 = camino arriba
+	score += 2 if _camino.has(Vector2(x+1,y)) else 0 #Score 2 = Camino derecha
+	score += 4 if _camino.has(Vector2(x,y+1)) else 0 #Score 4 = Camino abajo
+	score += 8 if _camino.has(Vector2(x-1,y)) else 0 #Score 8 = camino izquierda
 	
 	return score
