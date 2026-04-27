@@ -1,11 +1,11 @@
 # Testeo
 extends Node3D
 
-@export var enemy_scene: PackedScene  # Asignar la escena del enemigo
-@export var path_to_follow: Path3D   # Asignar el Path3D
-@export var total_enemies: int = 10   # Cantidad total de enemigos
-@export var spawn_delay: float = 1.0  # Tiempo entre cada spawn
-@export var spawn_interval: float = 0.5  # Intervalo entre enemigos
+@export var enemy_scene: PackedScene
+@export var path_to_follow: Path3D
+@export var total_enemies: int = 10
+@export var spawn_delay: float = 1.0
+@export var spawn_interval: float = 0.5
 
 var enemies_spawned: int = 0
 var spawning: bool = false
