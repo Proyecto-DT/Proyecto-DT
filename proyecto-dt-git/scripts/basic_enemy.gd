@@ -24,7 +24,6 @@ func set_path(nuevo_path: Path3D):
 	total_length = path.curve.get_baked_length()
 	if total_length == 0:
 		print("ERROR: La curva no tiene puntos o tiene longitud 0")
-		print("Asegúrate de haber dibujado la ruta con puntos en el Path3D")
 		return
 	
 	# Crear el PathFollow3D y agregarlo al Path
@@ -34,7 +33,6 @@ func set_path(nuevo_path: Path3D):
 	# Configurar el PathFollow
 	path_follow.loop = false
 	path_follow.progress = 0
-	path_follow.rotation_mode = PathFollow3D.ROTATION_ORIENTED
 	
 	# Iniciar movimiento
 	is_moving = true
@@ -45,7 +43,6 @@ func _physics_process(delta):
 		return
 	
 	if path_follow == null:
-		print("ERROR: path_follow es null en _physics_process")
 		is_moving = false
 		return
 	
@@ -54,10 +51,6 @@ func _physics_process(delta):
 	
 	# Limitar el progreso a la longitud total
 	if current_offset >= total_length:
-		current_offset = total_length
-		path_follow.progress = current_offset
-		global_position = path_follow.global_position
-		global_rotation = path_follow.global_rotation
 		llegar_al_final()
 		return
 	
@@ -89,12 +82,13 @@ func reanudar_movimiento():
 		is_moving = true
 		print("Movimiento reanudado")
 
+# Devuelve la ruta
 func get_path_follow():
 	return path_follow
 
 func _on_area_3d_area_entered(area: Area3D):
-	print("Hormiga detectó: ", area.name)
-	print("Grupos del área: ", area.get_groups())
+	#print("Hormiga detectó: ", area.name)
+	#print("Grupos del área: ", area.get_groups())
 	
 	if area.is_in_group("Proyectiles"):
 		vida = vida - area.damage

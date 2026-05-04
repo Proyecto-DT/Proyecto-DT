@@ -27,7 +27,6 @@ func _on_rango_area_exited(area: Area3D):
 	if enemigo_actual == area:
 		enemigo_actual = enemigo_en_rango[0] if enemigo_en_rango.size() > 0 else null
 		objetivo_enemigo_actual = false
-		obtener_progreso = 0
 	
 func rotacion_hacia_objetivo(objetivo, delta):
 	var dir_hormiga = $Hormiga.global_position.direction_to(Vector3(objetivo.global_position.x, global_position.y, objetivo.global_position.z))
@@ -61,4 +60,3 @@ func atacar_objetivo():
 
 func _on_timer_disparo_timeout() -> void:
 	atacar_objetivo()
-	pass # Replace with function body.
