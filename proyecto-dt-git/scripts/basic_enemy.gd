@@ -1,97 +1,93 @@
 extends CharacterBody3D
 
-@export var speed: float = 3.0
-@export var path: Path3D = null
+@export var velocidad: float = 1.5
+@export var ruta: Path3D = null
 
-var path_follow: PathFollow3D
-var current_offset: float = 0.0
-var is_moving: bool = false
-var total_length: float = 0.0
+var ruta_seguimiento: PathFollow3D
+var desplazamiento_actual: float = 0.0
+var se_mueve: bool = false
+var longitud_total: float = 0.0
 var vida: float = 100
 
-func set_path(nuevo_path: Path3D):
+func set_ruta(nueva_ruta: Path3D):
 	
-	if nuevo_path == null:
-		print("ERROR: El path recibido es null")
+	if nueva_ruta == null:
+		print("ERROR: La ruta recibida es null")
 		return
 	
-	path = nuevo_path
+	ruta = nueva_ruta
 	
-	if not path.curve:
+	if not ruta.curve:
 		print("ERROR: El Path3D no tiene una curva asignada")
 		return
 	
-	total_length = path.curve.get_baked_length()
-	if total_length == 0:
-		print("ERROR: La curva no tiene puntos o tiene longitud 0")
+	longitud_total = ruta.curve.get_baked_length()
+	if longitud_total == 0:
+		print("ERROR: La curva no tiene puntos")
 		return
 	
-	# Crear el PathFollow3D y agregarlo al Path
-	path_follow = PathFollow3D.new()
-	path.add_child(path_follow)
+	ruta_seguimiento = PathFollow3D.new()
+	ruta.add_child(ruta_seguimiento)
 	
-	# Configurar el PathFollow
-	path_follow.loop = false
-	path_follow.progress = 0
+	# Configuraciones de PathFollow
+	ruta_seguimiento.loop = false
+	ruta_seguimiento.progress = 0
 	
 	# Iniciar movimiento
-	is_moving = true
+	se_mueve = true
 	
 
 func _physics_process(delta):
-	if not is_moving:
+	if not se_mueve:
 		return
 	
-	if path_follow == null:
-		is_moving = false
+	if ruta_seguimiento == null:
+		se_mueve = false
 		return
 	
-	# Avanzar por la ruta
-	current_offset += speed * delta
+	desplazamiento_actual += velocidad * delta
 	
 	# Limitar el progreso a la longitud total
-	if current_offset >= total_length:
+	if desplazamiento_actual >= longitud_total:
 		llegar_al_final()
 		return
 	
-	# Actualizar posición en la ruta
-	path_follow.progress = current_offset
+	# Actualizar posicion en la ruta
+	ruta_seguimiento.progress = desplazamiento_actual
 	
-	# Actualizar posición y rotación del enemigo
-	global_position = path_follow.global_position
-	global_rotation = path_follow.global_rotation
+	# Actualizar posicion y rotacion del enemigo
+	global_position = ruta_seguimiento.global_position
+	global_rotation = ruta_seguimiento.global_rotation
 
 func llegar_al_final():
-	is_moving = false
+	se_mueve = false
 	
-	# Limpiar el PathFollow para evitar errores
-	if path_follow:
-		path_follow.queue_free()
+	if ruta_seguimiento:
+		ruta_seguimiento.queue_free()
 	
 	# Eliminar el enemigo
 	queue_free()
 
-# Método opcional para pausar el movimiento
+# Metodo opcional para pausar el movimiento
 func pausar_movimiento():
-	is_moving = false
+	se_mueve = false
 	print("Movimiento pausado")
 
 # Método opcional para reanudar el movimiento
 func reanudar_movimiento():
-	if path_follow:
-		is_moving = true
+	if ruta_seguimiento:
+		se_mueve = true
 		print("Movimiento reanudado")
 
-# Devuelve la ruta
-func get_path_follow():
-	return path_follow
+func get_ruta_seguimiento():
+	return ruta_seguimiento
 
 func _on_area_3d_area_entered(area: Area3D):
 	#print("Hormiga detectó: ", area.name)
 	#print("Grupos del área: ", area.get_groups())
 	
 	if area.is_in_group("Proyectiles"):
-		vida = vida - area.damage
+		vida = vida - area.dano
 		$SubViewport/ProgressBar.value = vida
 		#print(vida)
 		if vida <= 0:

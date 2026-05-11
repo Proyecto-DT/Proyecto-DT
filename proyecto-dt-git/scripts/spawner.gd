@@ -1,42 +1,37 @@
-# Testeo
 extends Node3D
 
-@export var enemy_scene: PackedScene
-@export var path_to_follow: Path3D
-@export var total_enemies: int = 10
-@export var spawn_delay: float = 1.0
-@export var spawn_interval: float = 0.5
+@export var escena_enemigo: PackedScene
+@export var ruta_a_seguir: Path3D
+@export var total_enemigos: int = 10
+@export var intervalo_generacion: float = 0.5
 
-var enemies_spawned: int = 0
-var spawning: bool = false
+var enemigos_generados: int = 0
+var estado_generador: bool = false
 
 func _ready():
-	start_spawning()
+	inicio_generacion()
 
-func start_spawning():
-	spawning = true
-	spawn_next_enemy()
+func inicio_generacion():
+	estado_generador = true
+	siguiente_generacion_enemigo()
 
-func spawn_next_enemy():
-	if enemies_spawned < total_enemies and spawning:
-		spawn_enemy()
-		enemies_spawned += 1
+func siguiente_generacion_enemigo():
+	if enemigos_generados < total_enemigos and estado_generador:
+		aparicion_enemiga()
+		enemigos_generados += 1
 		
 		# Programar el siguiente spawn
-		await get_tree().create_timer(spawn_interval).timeout
-		spawn_next_enemy()
+		await get_tree().create_timer(intervalo_generacion).timeout
+		siguiente_generacion_enemigo()
 
-func spawn_enemy():
-	if not enemy_scene or not path_to_follow:
+func aparicion_enemiga():
+	if not escena_enemigo or not ruta_a_seguir:
 		print("Error: Faltan asignar la escena del enemigo o la ruta")
 		return
 	
-	var enemy = enemy_scene.instantiate()
-	add_child(enemy)
+	var enemigo = escena_enemigo.instantiate()
+	add_child(enemigo)
 	
 	# Configurar el enemigo
-	if enemy.has_method("set_path"):
-		enemy.set_path(path_to_follow)
-
-func stop_spawning():
-	spawning = false
+	if enemigo.has_method("set_ruta"):
+		enemigo.set_ruta(ruta_a_seguir)
