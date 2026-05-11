@@ -49,11 +49,12 @@ func _pop_along_grid(): #spawn hormiga
 	
 	var distancia_actual:float = 0.0
 	
-	while distancia_actual < c3d.point_count-1:
-		distancia_actual += 0.02
-		pf3d.progress = clamp(distancia_actual, 0, c3d.point_count-1.00001)
-		await get_tree().create_timer(0.01).timeout	
-	
+	while distancia_actual < c3d.get_baked_length():
+		distancia_actual += 0.05
+		pf3d.progress = distancia_actual
+		await get_tree().create_timer(0.01).timeout
+	hormiga.queue_free()
+
 func _completar_mapa(): #genera los tiles alrededor del camino
 	for x in range(mapa_longitud):
 		for y in range(mapa_latitud):
