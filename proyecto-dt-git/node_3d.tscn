@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ba6h6kri7r08o" path="res://scenes/torreta_gomera.tscn" id="2_noarx"]
 [ext_resource type="Script" uid="uid://b4arm4uaqq28q" path="res://scripts/spawner.gd" id="4_jka67"]
 [ext_resource type="PackedScene" uid="uid://c4ininnwc5xaj" path="res://scenes/basic_enemy.tscn" id="4_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://dnxc8sr6bg4rk" path="res://scenes/interfaz_jugador.tscn" id="5_wc5p8"]
+[ext_resource type="Script" uid="uid://c1km1bpyt6po" path="res://scenes/colocar_defensas.gd" id="6_jsk3o"]
+[ext_resource type="Texture2D" uid="uid://cjxsac6vandbj" path="res://models/Hormiga gomera/Hormiga gomera.png" id="7_4arys"]
 
 [sub_resource type="Curve3D" id="Curve3D_a0tk4"]
 _data = {
@@ -45,4 +48,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1785698, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1199965566]
-transform = Transform3D(0.0013298441, 0.054550983, -0.9984921, 1.8626302e-09, 0.9985029, 0.05455049, 0.99999106, -7.254681e-05, 0.0013278506, 0.75080657, 0, 1.4918761)
+transform = Transform3D(0.0013298441, 0.054550983, -0.99849194, 1.8626302e-09, 0.9985029, 0.054550484, 0.99999106, -7.254681e-05, 0.0013278504, 0.75080657, 0, 1.4918761)
+
+[node name="InterfazJugador" parent="." unique_id=421328311 instance=ExtResource("5_wc5p8")]
+
+[node name="ColocarHormigaGomera2" type="Button" parent="InterfazJugador" unique_id=1896499639]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -103.0
+offset_right = 48.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_jsk3o")
+torreta_gomera = ExtResource("2_noarx")
+colocar_defensas_icono = ExtResource("7_4arys")
+
+[connection signal="pressed" from="InterfazJugador/ColocarHormigaGomera2" to="InterfazJugador/ColocarHormigaGomera2" method="_on_pressed"]
