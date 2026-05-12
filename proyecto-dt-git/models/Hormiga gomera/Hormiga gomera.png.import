@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8hoxvwgjlqw3"
-path.s3tc="res://.godot/imported/colormap.png-50139b159a6954cd4bdf21022e772ffc.s3tc.ctex"
+uid="uid://cjxsac6vandbj"
+path="res://.godot/imported/Hormiga gomera.png-9d0ba6f121fa85fb5f867bed2408ef99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-50139b159a6954cd4bdf21022e772ffc.ctex"]
+source_file="res://models/Hormiga gomera/Hormiga gomera.png"
+dest_files=["res://.godot/imported/Hormiga gomera.png-9d0ba6f121fa85fb5f867bed2408ef99.ctex"]
 
 [params]
 
