@@ -8,7 +8,7 @@ func _ready():
 	opciones.visible = false
 
 func _on_nueva_partida_pressed() -> void:
-	pass ## Cuando el nivel este listo se tiene que colocar la escena en esta funcion
+	GameManager.cambiar_estado(GameManager.EstadoJuego.PREPARACION)
 
 func _on_opciones_pressed() -> void:
 	panel_menu.visible = false

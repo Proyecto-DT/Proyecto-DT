@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cptfl2n726tcy"]
+
+[ext_resource type="Script" uid="uid://cwg5bue4wldij" path="res://scenes/reina_hormiga.gd" id="1_gpvfu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bqqla"]
+radius = 0.50255674
+
+[sub_resource type="SphereMesh" id="SphereMesh_j28yu"]
+
+[node name="Reina" type="StaticBody3D" unique_id=774188681 groups=["reina"]]
+script = ExtResource("1_gpvfu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1901561483]
+shape = SubResource("SphereShape3D_bqqla")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=739884829]
+mesh = SubResource("SphereMesh_j28yu")

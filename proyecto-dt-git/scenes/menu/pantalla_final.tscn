@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dqjn2sq4es401"]
+
+[ext_resource type="Script" uid="uid://btk5hpmecb656" path="res://scripts/pantalla_final.gd" id="1_neda8"]
+
+[node name="PantallaFinal" type="Control" unique_id=1604222932]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_neda8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1881378282]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TituloVictoria" type="Label" parent="." unique_id=1034833708]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 119.0
+offset_right = 689.0
+offset_bottom = 142.0
+text = "¡Haz ganado. Bien hecho!"
+
+[node name="TituloDerrota" type="Label" parent="." unique_id=432984977]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 94.0
+offset_right = 713.0
+offset_bottom = 117.0
+text = "Has perdido. Intentalo otra vez."
+
+[node name="Puntaje" type="Label" parent="." unique_id=337894654]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 154.0
+offset_right = 624.0
+offset_bottom = 177.0
+text = "Puntaje "
+
+[node name="BotonMenu" type="Button" parent="." unique_id=1843500846]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 349.0
+offset_right = 652.0
+offset_bottom = 380.0
+text = "Menu "
+
+[node name="BotonContinuar" type="Button" parent="." unique_id=1818916155]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 422.0
+offset_right = 671.0
+offset_bottom = 453.0
+text = "Continuar "
