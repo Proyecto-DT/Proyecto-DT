@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b6errkkwovh1x"]
+
+[ext_resource type="MeshLibrary" uid="uid://i2m61jm4eprv" path="res://assets/tiles.tres" id="1_a202f"]
+[ext_resource type="Script" uid="uid://dteq6wujmdb12" path="res://node_3d.gd" id="1_jsk3o"]
+[ext_resource type="PackedScene" uid="uid://ba6h6kri7r08o" path="res://scenes/torreta_gomera.tscn" id="2_noarx"]
+[ext_resource type="Script" uid="uid://b4arm4uaqq28q" path="res://scripts/spawner.gd" id="4_jka67"]
+[ext_resource type="PackedScene" uid="uid://c4ininnwc5xaj" path="res://scenes/basic_enemy.tscn" id="4_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://dnxc8sr6bg4rk" path="res://scenes/interfaz_jugador.tscn" id="5_wc5p8"]
+[ext_resource type="Script" uid="uid://c1km1bpyt6po" path="res://scripts/colocar_defensas.gd" id="6_jsk3o"]
+[ext_resource type="Texture2D" uid="uid://cjxsac6vandbj" path="res://models/Hormiga gomera/Hormiga gomera.png" id="7_4arys"]
+[ext_resource type="PackedScene" uid="uid://cptfl2n726tcy" path="res://scenes/reina_hormiga.tscn" id="9_4arys"]
+
+[sub_resource type="Curve3D" id="Curve3D_a0tk4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.75080657, 0, 1.4918761, -0.5193882, -0.11405277, -0.0027763844, 0.5193882, 0.11405277, 0.0027763844, 3.3578167, 0, 1.4918761, -0.47648335, -0.09741211, -0.0043162704, 0.47648335, 0.09741211, 0.0043162704, 4.224841, -0.07096028, 0.5054664, -0.3338976, 0, 0.014271975, 0.3338976, 0, -0.014271975, 5.06625, -3.7431717e-05, 1.4873575, 0, 0, 0, 0, 0, 0, 6.6915045, -3.7431717e-05, 1.5128877, -0.5061798, -8.4638596e-05, -1.2774136, 0.5061798, 8.4638596e-05, 1.2774136, 8.557414, 0, 2.2798378, 0.8971319, -3.7431717e-05, -0.014460087, -0.8971319, 3.7431717e-05, 0.014460087, 7.360161, -3.7431717e-05, 4.497482, 0, 0, 0, 0, 0, 0, 6.8043365, 0, 5.8426685, 0, 0, 0, 0, 0, 0, 6.7960606, 0, 7.0261683, 0, 0, 0, 0, 0, 0, 6.79647, 0, 8.532423, -0.3714013, 0, 0.0051584244, 0.3714013, 0, -0.0051584244, 7.0832834, -3.7431717e-05, 9.462516, 0.098008156, 0, 0.5158348, -0.098008156, 0, -0.5158348, 8.697847, -3.7431717e-05, 9.122065, 0.4846387, -8.4638596e-05, -0.051322937, -0.4846387, 8.4638596e-05, 0.051322937, 8.410334, 0, 7.5558276, 0.35377645, -3.7431717e-05, -1.0462322, -0.35377645, 3.7431717e-05, 1.0462322, 3.995031, -3.7431717e-05, 8.164252, 0, 0, 0, 0, 0, 0, 3.7703874, -3.7431717e-05, 9.693021),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 15
+
+[node name="Node3D" type="Node3D" unique_id=1522368197]
+script = ExtResource("1_jsk3o")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1629370329]
+transform = Transform3D(0.29825798, 0.8771896, -0.37627208, 0, 0.3942146, 0.91901845, 0.9544853, -0.27410457, 0.11757766, 2.0521884, 5.345955, 6.4317455)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1007372445]
+transform = Transform3D(0.9915539, 0.01786854, -0.12845866, 0.12969548, -0.13660942, 0.9820982, -3.3999612e-09, -0.99046385, -0.13777307, 5.9064627, 8.435217, 8.32444)
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1302255062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, -2.75)
+mesh_library = ExtResource("1_a202f")
+cell_size = Vector3(0.5, 0.25, 0.5)
+data = {
+"cells": PackedInt32Array(1, 8, 1048669, 3, 8, 1441892, 5, 8, 1441892, 7, 8, 655436, 7, 6, 76, 9, 6, 1441868, 9, 8, 1048652, 5, 6, 1048667, 11, 8, 1048676, 13, 8, 1441892, 16, 9, 1441866, 16, 13, 655434, 13, 14, 76, 13, 16, 100, 13, 18, 100, 13, 22, 100, 13, 24, 1048652, 15, 24, 1048676, 17, 24, 655436, 17, 22, 655460, 17, 20, 1441868, 15, 22, 1048685, 8, 21, 74, 7, 24, 100, 7, 26, 91, 15, 20, 1441892, 11, 20, 1441892, 13, 20, 1048654)
+}
+metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="TorretaGomera" parent="." unique_id=686651658 instance=ExtResource("2_noarx")]
+transform = Transform3D(-0.99956656, 0, -0.029439399, 0, 1, 0, 0.029439399, 0, -0.99956656, 7.6776667, 0.20705843, 6.077451)
+
+[node name="Spawner" type="Node3D" parent="." unique_id=1315967814 node_paths=PackedStringArray("ruta_a_seguir")]
+script = ExtResource("4_jka67")
+escena_enemigo = ExtResource("4_r3fl7")
+ruta_a_seguir = NodePath("../Path3D2")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=425562302]
+
+[node name="Path3D2" type="Path3D" parent="." unique_id=391203271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1785698, 0)
+curve = SubResource("Curve3D_a0tk4")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1199965566]
+transform = Transform3D(0.0013298441, 0.054550983, -0.99849117, 1.8626302e-09, 0.9985029, 0.05455044, 0.99999106, -7.254681e-05, 0.0013278493, 0.75080657, 0, 1.4918761)
+
+[node name="InterfazJugador" parent="." unique_id=421328311 instance=ExtResource("5_wc5p8")]
+
+[node name="ColocarHormigaGomera2" type="Button" parent="InterfazJugador" unique_id=1896499639]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -103.0
+offset_right = 48.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_jsk3o")
+torreta_gomera = ExtResource("2_noarx")
+colocar_defensas_icono = ExtResource("7_4arys")
+
+[node name="Reina" parent="." unique_id=664031564 instance=ExtResource("9_4arys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7359152, 0, 10.394582)
+
+[connection signal="pressed" from="InterfazJugador/ColocarHormigaGomera2" to="InterfazJugador/ColocarHormigaGomera2" method="_on_pressed"]

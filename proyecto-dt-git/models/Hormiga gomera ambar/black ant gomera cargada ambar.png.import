@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8hoxvwgjlqw3"
-path.s3tc="res://.godot/imported/colormap.png-50139b159a6954cd4bdf21022e772ffc.s3tc.ctex"
+uid="uid://c02rgd1en63ot"
+path.s3tc="res://.godot/imported/black ant gomera cargada ambar.png-112146a209b14dfaecd15f72af3053ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-50139b159a6954cd4bdf21022e772ffc.s3tc.ctex"]
+source_file="res://models/Hormiga gomera ambar/black ant gomera cargada ambar.png"
+dest_files=["res://.godot/imported/black ant gomera cargada ambar.png-112146a209b14dfaecd15f72af3053ef.s3tc.ctex"]
 
 [params]
 
