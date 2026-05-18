@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7vfcbqddbnh8"]
 
-[ext_resource type="Script" uid="uid://bputwojyen5kv" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bputwojyen5kv" path="res://scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://clh25i00yyskr" path="res://assets/tile-straight.fbx" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://brevn70jj0oir" path="res://assets/tile-spawn-end-round.fbx" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d2nuo57q3qbhv" path="res://assets/tile-corner-round.fbx" id="3_1bvp3"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cbxshrtgonls0" path="res://assets/tile-crystal.fbx" id="7_4c57u"]
 [ext_resource type="PackedScene" uid="uid://d1dlipgux7a0q" path="res://assets/tile.fbx" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://hnb53aex12yv" path="res://assets/tile-tree.fbx" id="8_4c57u"]
-[ext_resource type="PackedScene" uid="uid://cx7r1whapuegd" path="res://enemigo.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cx7r1whapuegd" path="res://scenes/enemigo.tscn" id="10_4c57u"]
 
 [sub_resource type="Environment" id="Environment_4c57u"]
 

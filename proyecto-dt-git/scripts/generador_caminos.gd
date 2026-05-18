@@ -17,7 +17,7 @@ func generar_camino(add_loops:bool = false):
 	randomize()
 	
 	var x = 0 
-	var y = int(_cuadricula_longitud/2)
+	var y = int(_cuadricula_longitud/float(2))
 	
 	while x < _cuadricula_latitud:
 		if not _camino.has(Vector2i(x,y)):
