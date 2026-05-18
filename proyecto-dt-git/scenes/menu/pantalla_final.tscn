@@ -37,7 +37,7 @@ offset_left = 560.0
 offset_top = 154.0
 offset_right = 624.0
 offset_bottom = 177.0
-text = "Puntaje "
+text = "Puntaje:"
 
 [node name="BotonMenu" type="Button" parent="." unique_id=1843500846]
 layout_mode = 0

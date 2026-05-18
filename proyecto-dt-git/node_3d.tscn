@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://b4arm4uaqq28q" path="res://scripts/spawner.gd" id="4_jka67"]
 [ext_resource type="PackedScene" uid="uid://c4ininnwc5xaj" path="res://scenes/basic_enemy.tscn" id="4_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://dnxc8sr6bg4rk" path="res://scenes/interfaz_jugador.tscn" id="5_wc5p8"]
-[ext_resource type="Script" uid="uid://c1km1bpyt6po" path="res://scenes/colocar_defensas.gd" id="6_jsk3o"]
+[ext_resource type="Script" uid="uid://c1km1bpyt6po" path="res://scripts/colocar_defensas.gd" id="6_jsk3o"]
 [ext_resource type="Texture2D" uid="uid://cjxsac6vandbj" path="res://models/Hormiga gomera/Hormiga gomera.png" id="7_4arys"]
 [ext_resource type="PackedScene" uid="uid://cptfl2n726tcy" path="res://scenes/reina_hormiga.tscn" id="9_4arys"]
 
@@ -51,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1785698, 0)
 curve = SubResource("Curve3D_a0tk4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D2" unique_id=1199965566]
-transform = Transform3D(0.0013298441, 0.054550983, -0.9984912, 1.8626302e-09, 0.9985029, 0.054550443, 0.99999106, -7.254681e-05, 0.0013278495, 0.75080657, 0, 1.4918761)
+transform = Transform3D(0.0013298441, 0.054550983, -0.99849117, 1.8626302e-09, 0.9985029, 0.05455044, 0.99999106, -7.254681e-05, 0.0013278493, 0.75080657, 0, 1.4918761)
 
 [node name="InterfazJugador" parent="." unique_id=421328311 instance=ExtResource("5_wc5p8")]
 
