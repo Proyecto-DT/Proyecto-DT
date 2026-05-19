@@ -22,31 +22,18 @@ extends Node3D
 @export var max_loops = 5
  
 var _generadorcaminos:GeneradorCaminos
-var path_3d:Path3D  # Guardar referencia al Path3D creado
+var path_3d:Path3D 
 
 func _ready(): 
 	_generadorcaminos = GeneradorCaminos.new(mapa_latitud, mapa_longitud)
 	_mostrar_camino()
 	_completar_mapa()
 
-	# Esperar un poco y luego iniciar el spawner con la ruta creada
 	await get_tree().create_timer(1.0).timeout
-	_iniciar_spawner()
+	spawner_node.configurar_ruta(path_3d)
+	spawner_node.inicio_generacion()
 
-func _iniciar_spawner():
-	if spawner_node and path_3d:
-		# Configurar la ruta en el spawner
-		spawner_node.configurar_ruta(path_3d)
-		# Iniciar la generación de hormigas
-		spawner_node.inicio_generacion()
-	else:
-		print("Error: No se pudo iniciar spawner - spawner_node o path_3d es null")
-
-func _pop_along_grid(): 
-	# Esta función ya no es necesaria, el spawner maneja las hormigas
-	pass
-
-func _completar_mapa(): #genera los tiles alrededor del camino
+func _completar_mapa():
 	for x in range(mapa_longitud):
 		for y in range(mapa_latitud):
 			if not _generadorcaminos.obtener_camino().has(Vector2i(x,y)):
@@ -62,8 +49,7 @@ func _mostrar_camino():
 	while (_generadorcaminos.obtener_camino().size() < min_path_size or _generadorcaminos.obtener_camino().size() > max_path_size or _generadorcaminos.get_loop_count() < min_loops or _generadorcaminos.get_loop_count() > max_loops):
 		_iteration_count += 1
 		_generadorcaminos.generar_camino(true)
-
-	# Crear el Path3D una sola vez
+	
 	path_3d = Path3D.new()
 	add_child(path_3d)
 	
@@ -73,7 +59,6 @@ func _mostrar_camino():
 	
 	path_3d.curve = c3d
 
-	# Mostrar los tiles del camino
 	for i in range(_generadorcaminos.obtener_camino().size()):
 		var tile_score:int = _generadorcaminos.get_tile_score(i)
 		var tile:Node3D = tile_cesped[0].instantiate()
@@ -107,7 +92,6 @@ func _mostrar_camino():
 			tile = tile_inicio.instantiate()
 			tile_rotation = Vector3(0, 90, 0)
 		else:
-			# fallback
 			tile = tile_cesped[0].instantiate()
 
 		add_child(tile)
