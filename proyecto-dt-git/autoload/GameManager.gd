@@ -23,7 +23,7 @@ func cambiar_estado(nuevo_estado: EstadoJuego):
 		
 		EstadoJuego.PREPARACION:
 			if nivel_actual == null or not is_instance_valid(nivel_actual):
-				get_tree().change_scene_to_file("res://node_3d.tscn")
+				get_tree().change_scene_to_file("res://scenes/niveles.tscn")
 			else:
 				_reiniciar_spawner()
 		
@@ -76,7 +76,7 @@ func _on_derrota():
 	print("¡Derrota! La reina ha muerto")
 	cambiar_estado(EstadoJuego.DERROTA)
 
-func _mostrar_pantalla_final(tipo: String):
+func _mostrar_pantalla_final(_tipo: String):
 	get_tree().change_scene_to_file("res://scenes/menu/pantalla_final.tscn")
 
 func _buscar_spawner(nodo: Node) -> Node:

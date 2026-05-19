@@ -15,9 +15,15 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Proyecto DT Git"
-run/main_scene="uid://c7vfcbqddbnh8"
+run/main_scene="uid://cki3qkmwwykxb"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://tk2aorv5h7gm"
+GestorMonedas="*uid://beud4oiehsios"
+GestorPuntaje="*uid://cq1ekfxae54ny"
 
 [editor_plugins]
 
