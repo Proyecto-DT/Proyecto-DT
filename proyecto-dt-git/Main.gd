@@ -6,7 +6,7 @@ var nivel = null
 func _ready():
 	GameManager.estado_cambiado.connect(_on_estado_cambiado)
 	
-	nivel = preload("res://scenes/main.tscn").instantiate()
+	nivel = preload("res://scenes/niveles.tscn").instantiate()
 	add_child(nivel)
 	nivel.visible = false
 
