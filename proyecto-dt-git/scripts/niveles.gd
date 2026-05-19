@@ -8,6 +8,9 @@ extends Node3D
 @export var tile_cesped:Array[PackedScene]
 @export var tile_enemigo:PackedScene
 
+# Referencia al nodo Spawner (hijo)
+@onready var spawner_node = $Spawner
+
 #Tamaño del mapa
 @export var mapa_longitud:int = 16
 @export var mapa_latitud:int = 10
@@ -19,41 +22,29 @@ extends Node3D
 @export var max_loops = 5
  
 var _generadorcaminos:GeneradorCaminos
+var path_3d:Path3D  # Guardar referencia al Path3D creado
 
 func _ready(): 
 	_generadorcaminos = GeneradorCaminos.new(mapa_latitud, mapa_longitud)
 	_mostrar_camino()
 	_completar_mapa()
 
-	await get_tree().create_timer(2).timeout
-	_pop_along_grid()
+	# Esperar un poco y luego iniciar el spawner con la ruta creada
+	await get_tree().create_timer(1.0).timeout
+	_iniciar_spawner()
 
-func _add_curve_point(c3d:Curve3D, v3:Vector3) ->bool: #agrega curvas
-	c3d.add_point(v3)
-	return true
+func _iniciar_spawner():
+	if spawner_node and path_3d:
+		# Configurar la ruta en el spawner
+		spawner_node.configurar_ruta(path_3d)
+		# Iniciar la generación de hormigas
+		spawner_node.inicio_generacion()
+	else:
+		print("Error: No se pudo iniciar spawner - spawner_node o path_3d es null")
 
-func _pop_along_grid(): #spawn hormiga
-	var hormiga = tile_enemigo.instantiate()
-	var c3d:Curve3D = Curve3D.new()
-	
-	for elemento in _generadorcaminos.obtener_camino():
-		c3d.add_point(Vector3(elemento.x, 0.1, elemento.y))
-	
-	var p3d:Path3D = Path3D.new()
-	add_child(p3d)
-	p3d.curve = c3d
-	
-	var pf3d:PathFollow3D = PathFollow3D.new()
-	p3d.add_child(pf3d)
-	pf3d.add_child(hormiga)
-	
-	var distancia_actual:float = 0.0
-	
-	while distancia_actual < c3d.get_baked_length():
-		distancia_actual += 0.05
-		pf3d.progress = distancia_actual
-		await get_tree().create_timer(0.01).timeout
-	hormiga.queue_free()
+func _pop_along_grid(): 
+	# Esta función ya no es necesaria, el spawner maneja las hormigas
+	pass
 
 func _completar_mapa(): #genera los tiles alrededor del camino
 	for x in range(mapa_longitud):
@@ -72,9 +63,17 @@ func _mostrar_camino():
 		_iteration_count += 1
 		_generadorcaminos.generar_camino(true)
 
-		print("Se generó una ruta de %d baldosas después de %d iteraciones" % [_generadorcaminos.obtener_camino().size(), _iteration_count])
-		print(_generadorcaminos.obtener_camino())
+	# Crear el Path3D una sola vez
+	path_3d = Path3D.new()
+	add_child(path_3d)
+	
+	var c3d:Curve3D = Curve3D.new()
+	for elemento in _generadorcaminos.obtener_camino():
+		c3d.add_point(Vector3(elemento.x, 0.1, elemento.y))
+	
+	path_3d.curve = c3d
 
+	# Mostrar los tiles del camino
 	for i in range(_generadorcaminos.obtener_camino().size()):
 		var tile_score:int = _generadorcaminos.get_tile_score(i)
 		var tile:Node3D = tile_cesped[0].instantiate()
@@ -110,10 +109,7 @@ func _mostrar_camino():
 		else:
 			# fallback
 			tile = tile_cesped[0].instantiate()
-		print (tile_score)
-
 
 		add_child(tile)
 		tile.position = Vector3(_generadorcaminos.get_path_tile(i).x, 0, _generadorcaminos.get_path_tile(i).y)
 		tile.rotation_degrees = tile_rotation
-		

@@ -31,10 +31,10 @@ func cambiar_estado(nuevo_estado: EstadoJuego):
 			_iniciar_invasion()
 		
 		EstadoJuego.VICTORIA:
-			_mostrar_pantalla_final("victoria")
+			_mostrar_pantalla_final()
 		
 		EstadoJuego.DERROTA:
-			_mostrar_pantalla_final("derrota")
+			_mostrar_pantalla_final()
 
 func _reiniciar_spawner():
 	print("Reiniciando spawner...")
@@ -76,7 +76,7 @@ func _on_derrota():
 	print("¡Derrota! La reina ha muerto")
 	cambiar_estado(EstadoJuego.DERROTA)
 
-func _mostrar_pantalla_final(_tipo: String):
+func _mostrar_pantalla_final():
 	get_tree().change_scene_to_file("res://scenes/menu/pantalla_final.tscn")
 
 func _buscar_spawner(nodo: Node) -> Node:

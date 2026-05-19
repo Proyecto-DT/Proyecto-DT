@@ -15,20 +15,9 @@ func _ready():
 	add_to_group("enemigos")
 
 func set_ruta(nueva_ruta: Path3D):
-	if nueva_ruta == null:
-		print("ERROR: La ruta recibida es null")
-		return
-	
 	ruta = nueva_ruta
 	
-	if not ruta.curve:
-		print("ERROR: El Path3D no tiene una curva asignada")
-		return
-	
 	longitud_total = ruta.curve.get_baked_length()
-	if longitud_total == 0:
-		print("ERROR: La curva no tiene puntos")
-		return
 	
 	ruta_seguimiento = PathFollow3D.new()
 	ruta.add_child(ruta_seguimiento)
@@ -59,13 +48,9 @@ func _physics_process(delta):
 func llegar_al_final():
 	se_mueve = false
 	
-	if ruta_seguimiento:
-		ruta_seguimiento.queue_free()
-	
 	# daño a la reina
 	_danar_reina()
-	
-	# morir despues de dañar a la reina
+
 	morir()
 
 func _danar_reina():

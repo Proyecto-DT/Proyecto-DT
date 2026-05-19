@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cbxshrtgonls0" path="res://assets/tile-crystal.fbx" id="7_la1yu"]
 [ext_resource type="PackedScene" uid="uid://hnb53aex12yv" path="res://assets/tile-tree.fbx" id="8_cqxmp"]
 [ext_resource type="PackedScene" uid="uid://d1dlipgux7a0q" path="res://assets/tile.fbx" id="9_xakpu"]
-[ext_resource type="PackedScene" uid="uid://cx7r1whapuegd" path="res://scenes/enemigo.tscn" id="10_vppem"]
+[ext_resource type="PackedScene" uid="uid://c4ininnwc5xaj" path="res://scenes/basic_enemy.tscn" id="10_0s6js"]
+[ext_resource type="Script" uid="uid://b4arm4uaqq28q" path="res://scripts/spawner.gd" id="11_acxrc"]
 
 [sub_resource type="Environment" id="Environment_4c57u"]
 
@@ -21,7 +22,7 @@ tile_straight = ExtResource("4_lti75")
 tile_esquina = ExtResource("5_dk2jl")
 tile_cruce = ExtResource("6_lypuj")
 tile_cesped = Array[PackedScene]([ExtResource("7_la1yu"), ExtResource("8_cqxmp"), ExtResource("9_xakpu"), ExtResource("9_xakpu"), ExtResource("9_xakpu"), ExtResource("9_xakpu")])
-tile_enemigo = ExtResource("10_vppem")
+tile_enemigo = ExtResource("10_0s6js")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=973575615]
 transform = Transform3D(1, 0, 0, 0, 0.04803034, 0.99884593, 0, -0.99884593, 0.04803034, 7.069357, 7.830677, 6.204026)
@@ -32,3 +33,9 @@ transform = Transform3D(-0.01870674, 0.99676585, -0.07815331, -0.7683842, 0.0356
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1630789041]
 environment = SubResource("Environment_4c57u")
+
+[node name="Spawner" type="Node3D" parent="." unique_id=1410227754]
+script = ExtResource("11_acxrc")
+escena_enemigo = ExtResource("10_0s6js")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=1538760374]
