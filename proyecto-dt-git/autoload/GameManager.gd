@@ -5,7 +5,6 @@ signal estado_cambiado(nuevo_estado)
 enum EstadoJuego { MENU, PREPARACION, INVASION, VICTORIA, DERROTA }
 var estado_actual: EstadoJuego = EstadoJuego.MENU
 var nivel_actual: Node = null
-var puntaje_actual: int = 0  # <--- NUEVO
 
 func _ready():
 	print("GameManager listo. Estado inicial: MENU")
@@ -19,7 +18,6 @@ func cambiar_estado(nuevo_estado: EstadoJuego):
 		EstadoJuego.MENU:
 			get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
 			nivel_actual = null
-			puntaje_actual = 0
 		
 		EstadoJuego.PREPARACION:
 			if nivel_actual == null or not is_instance_valid(nivel_actual):
@@ -100,7 +98,3 @@ func _buscar_reina(nodo: Node) -> Node:
 		if encontrado:
 			return encontrado
 	return null
-
-func sumar_puntaje(puntos: int):
-	puntaje_actual += puntos
-	print("Puntaje acumulado: ", puntaje_actual)
