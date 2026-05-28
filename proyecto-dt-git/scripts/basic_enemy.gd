@@ -8,8 +8,10 @@ var desplazamiento_actual: float = 0.0
 var se_mueve: bool = false
 var longitud_total: float = 0.0
 var vida: float = 100
+var valor_puntos = 10 #AAAAAAAAAA
+var valor_monedas = 5 #AAAAAAAAAA
 
-signal murio
+signal murio(puntos, monedas) #AAAAAAAAAA
 
 func _ready():
 	add_to_group("enemigos")
@@ -45,13 +47,12 @@ func _physics_process(delta):
 	global_position = ruta_seguimiento.global_position
 	global_rotation = ruta_seguimiento.global_rotation
 
-func llegar_al_final():
+func llegar_al_final(): #AAAAAAAAAA
 	se_mueve = false
-	
-	# daño a la reina
+	if ruta_seguimiento:
+		ruta_seguimiento.queue_free()
 	_danar_reina()
-
-	morir()
+	morir(false)
 
 func _danar_reina():
 	var reina = _buscar_reina()
@@ -70,11 +71,14 @@ func _on_area_3d_area_entered(area: Area3D):
 		vida = vida - area.dano
 		$SubViewport/ProgressBar.value = vida
 		if vida <= 0:
-			morir()
+			morir(true) #AAAAAAAAAA
 		area.queue_free()
 
-func morir():
-	murio.emit()
+func morir(muere_por_torreta): #AAAAAAAAAA
+	if muere_por_torreta:
+		murio.emit(valor_puntos, valor_monedas)
+	else:
+		murio.emit(0, 0)
 	queue_free()
 
 func pausar_movimiento():

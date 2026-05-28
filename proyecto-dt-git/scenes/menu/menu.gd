@@ -8,6 +8,8 @@ func _ready():
 	opciones.visible = false
 
 func _on_nueva_partida_pressed() -> void:
+	GestorPuntaje.reset_puntaje()
+	GestorMonedas.reset_monedas()
 	GameManager.cambiar_estado(GameManager.EstadoJuego.PREPARACION)
 
 func _on_opciones_pressed() -> void:

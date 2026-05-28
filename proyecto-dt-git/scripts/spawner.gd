@@ -48,9 +48,13 @@ func aparicion_enemiga():
 		if not enemigo.murio.is_connected(_on_enemigo_murio):
 			enemigo.murio.connect(_on_enemigo_murio)
 
-func _on_enemigo_murio():
+func _on_enemigo_murio(puntos, monedas):
 	enemigos_vivos -= 1
 	print("Enemigo muerto. Vivos restantes: ", enemigos_vivos)
+	
+	GestorPuntaje.sumar_puntos(puntos)
+	GestorMonedas.sumar_monedas(monedas)
+	
 	_verificar_todas_muertas()
 
 func _verificar_todas_muertas():

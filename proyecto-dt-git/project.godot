@@ -25,6 +25,11 @@ GameManager="*uid://tk2aorv5h7gm"
 GestorMonedas="*uid://beud4oiehsios"
 GestorPuntaje="*uid://cq1ekfxae54ny"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")

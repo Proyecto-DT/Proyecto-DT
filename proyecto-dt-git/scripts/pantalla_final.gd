@@ -13,7 +13,10 @@ func _ready():
 	titulo_derrota.visible = not es_victoria
 	boton_continuar.visible = es_victoria
 	
-	puntaje_label.text = "Puntaje: " + str(GameManager.puntaje_actual)
+	if es_victoria:
+		GestorPuntaje.sumar_puntos(100)
+	
+	puntaje_label.text = "Puntaje: " + str(GestorPuntaje.puntaje_total)
 	
 	boton_menu.pressed.connect(_on_boton_menu_pressed)
 	boton_continuar.pressed.connect(_on_boton_continuar_pressed)
