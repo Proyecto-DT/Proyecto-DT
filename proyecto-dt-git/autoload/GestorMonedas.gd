@@ -2,7 +2,7 @@ extends Node
 
 signal monedas_actualizadas(nuevas_monedas)
 
-var monedas_totales = 0
+var monedas_totales = 100
 
 func sumar_monedas(cantidad):
 	monedas_totales += cantidad
