@@ -6,6 +6,7 @@ func entrar():
 
 func continuar():
 	GameManager.oleada_actual += 1
+	GestorMonedas.sumar_monedas(100)
 	#game_manager.cambiar_estado("Preparacion")
 
 #func salir_al_menu():

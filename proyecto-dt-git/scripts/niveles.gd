@@ -29,9 +29,7 @@ func _ready():
 	_mostrar_camino()
 	_completar_mapa()
 
-	await get_tree().create_timer(1.0).timeout
-	spawner_node.configurar_ruta(path_3d)
-	spawner_node.inicio_generacion()
+	GameManager._iniciar_invasion(path_3d)
 
 func _completar_mapa():
 	for x in range(mapa_longitud):

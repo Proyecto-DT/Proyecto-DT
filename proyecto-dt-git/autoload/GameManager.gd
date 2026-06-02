@@ -43,12 +43,13 @@ func _reiniciar_spawner():
 		spawner.enemigos_vivos = 0
 		print("Spawner reiniciado. Listo para nueva invasión.")
 
-func _iniciar_invasion():
+func _iniciar_invasion(ruta = null):
 	print("Iniciando invasión...")
 	if not nivel_actual or not is_instance_valid(nivel_actual):
 		nivel_actual = get_tree().current_scene
 	
 	var spawner = _buscar_spawner(nivel_actual)
+	spawner.configurar_ruta(ruta)
 	if spawner:
 		# conectar señal de victoria
 		if not spawner.todas_hormigas_muertas.is_connected(_on_victoria):

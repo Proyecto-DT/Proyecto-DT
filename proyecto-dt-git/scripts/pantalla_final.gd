@@ -27,5 +27,4 @@ func _on_boton_menu_pressed():
 
 func _on_boton_continuar_pressed():
 	print("Botón Continuar presionado - Nueva oleada")
-	GameManager.puntaje_actual += 100
 	GameManager.cambiar_estado(GameManager.EstadoJuego.PREPARACION)
