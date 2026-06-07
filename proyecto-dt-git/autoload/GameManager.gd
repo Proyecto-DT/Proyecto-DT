@@ -6,6 +6,8 @@ enum EstadoJuego { MENU, PREPARACION, INVASION, VICTORIA, DERROTA }
 var estado_actual: EstadoJuego = EstadoJuego.MENU
 var nivel_actual: Node = null
 
+var celdas_cesped: Array[Vector2i] = []
+
 func _ready():
 	print("GameManager listo. Estado inicial: MENU")
 
@@ -76,7 +78,7 @@ func _on_derrota():
 	cambiar_estado(EstadoJuego.DERROTA)
 
 func _mostrar_pantalla_final():
-	get_tree().change_scene_to_file("res://scenes/menu/pantalla_final.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/menu/pantalla_final.tscn")
 
 func _buscar_spawner(nodo: Node) -> Node:
 	if not nodo:
@@ -99,3 +101,10 @@ func _buscar_reina(nodo: Node) -> Node:
 		if encontrado:
 			return encontrado
 	return null
+	
+func registrar_cesped(celdas: Array[Vector2i]):
+	celdas_cesped = celdas
+	
+func es_cesped(pos_mundo: Vector3):
+	var celda = Vector2i(roundi(pos_mundo.x), roundi(pos_mundo.z))
+	return celdas_cesped.has(celda)

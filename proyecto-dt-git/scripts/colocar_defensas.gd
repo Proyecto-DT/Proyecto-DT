@@ -74,6 +74,10 @@ func _colocar_defensa() -> void:
 	if vista_previa == null:
 		return
 		
+	if not GameManager.es_cesped(vista_previa.global_position):
+		print("ERROR: No es un cesped")
+		return
+	
 	GestorMonedas.sumar_monedas(-costo_torreta)
 	var torreta = torreta_gomera.instantiate()
 	get_tree().current_scene.add_child(torreta)

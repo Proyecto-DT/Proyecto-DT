@@ -79,7 +79,7 @@ func morir(muere_por_torreta):
 		murio.emit(valor_puntos, valor_monedas)
 	else:
 		murio.emit(0, 0)
-	queue_free()
+	call_deferred("queue_free")
 
 func pausar_movimiento():
 	se_mueve = false
