@@ -5,8 +5,7 @@ extends Node3D
 @export var tile_straight:PackedScene
 @export var tile_esquina:PackedScene
 @export var tile_cruce:PackedScene
-@export var tile_cesped_bloqueado:Array[PackedScene]
-@export var tile_cesped:PackedScene
+@export var tile_cesped:Array[PackedScene]
 @export var tile_enemigo:PackedScene
 
 # Referencia al nodo Spawner (hijo)
@@ -30,27 +29,18 @@ func _ready():
 	_mostrar_camino()
 	_completar_mapa()
 
-	GameManager._iniciar_invasion(path_3d)
+	await get_tree().create_timer(1.0).timeout
+	spawner_node.configurar_ruta(path_3d)
+	spawner_node.inicio_generacion()
 
 func _completar_mapa():
-	var celdas_libres: Array[Vector2i] = []
-
 	for x in range(mapa_longitud):
 		for y in range(mapa_latitud):
 			if not _generadorcaminos.obtener_camino().has(Vector2i(x,y)):
-				var tile: Node3D
-				
-				if tile_cesped_bloqueado.size() > 0 and randf() < 0.2: #probabilidad de salir cesped bloqueado
-					tile = tile_cesped_bloqueado.pick_random().instantiate()
-				else:
-					tile = tile_cesped.instantiate()
-					celdas_libres.append(Vector2i(x, y))
-				
+				var tile:Node3D = tile_cesped.pick_random().instantiate()
 				add_child(tile)
 				tile.position = Vector3(x, 0, y)
 				tile.rotation_degrees = Vector3(0, randi_range(0,3)*90, 0)
-				
-	GameManager.registrar_cesped(celdas_libres)
 
 func _mostrar_camino(): 
 	var _iteration_count:int = 1
@@ -71,7 +61,7 @@ func _mostrar_camino():
 
 	for i in range(_generadorcaminos.obtener_camino().size()):
 		var tile_score:int = _generadorcaminos.get_tile_score(i)
-		var tile:Node3D = tile_cesped.instantiate()
+		var tile:Node3D = tile_cesped[0].instantiate()
 		var tile_rotation: Vector3 = Vector3.ZERO
 
 		if tile_score == 5:
@@ -102,7 +92,7 @@ func _mostrar_camino():
 			tile = tile_inicio.instantiate()
 			tile_rotation = Vector3(0, 90, 0)
 		else:
-			tile = tile_cesped.instantiate()
+			tile = tile_cesped[0].instantiate()
 
 		add_child(tile)
 		tile.position = Vector3(_generadorcaminos.get_path_tile(i).x, 0, _generadorcaminos.get_path_tile(i).y)
