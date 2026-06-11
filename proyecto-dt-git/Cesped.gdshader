@@ -1,41 +1,37 @@
 shader_type spatial;
 
-// Viento base
-uniform float wind_speed = 2.0;
-uniform float wind_strength = 0.03;
+uniform float velocidad_viento = 2.0;
+uniform float fuerza_viento = 0.03;
 
-// Ventisca
-uniform float blizzard_speed = 8.0;
-uniform float blizzard_strength = 0.12;
-uniform float gust_frequency = 0.4;   // qué tan seguido vienen ráfagas
-uniform vec3  wind_direction = vec3(1.0, 0.0, 0.3); // dirección del viento
-uniform vec4 grass_color : source_color = vec4(0.20, 0.65, 0.35, 1.0);
-uniform float color_variation = 0.0;
+uniform float velocidad_ventisca = 8.0;
+uniform float fuerza_ventisca = 0.12;
+uniform float frecuencia_rafagas = 0.4;
+uniform vec3 direccion_viento = vec3(1.0, 0.0, 0.3);
 
-// ...resto del shader de viento...
+uniform vec4 color_pasto : source_color = vec4(0.20, 0.65, 0.35, 1.0);
+uniform float variacion_color = 0.0;
 
 void fragment() {
-    // Variación sutil de tono entre briznas
-    float vary = sin(FRAGCOORD.x * 13.7 + FRAGCOORD.y * 7.3) * color_variation;
-    ALBEDO = grass_color.rgb + vec3(vary);
+    float variacion = sin(FRAGCOORD.x * 13.7 + FRAGCOORD.y * 7.3) * variacion_color;
+    ALBEDO = color_pasto.rgb + vec3(variacion);
 }
-void vertex() {
-    float height = VERTEX.y;
 
-    // Vaivén suave base (igual que antes)
-    float sway = sin(
-        TIME * wind_speed +
+void vertex() {
+    float altura = VERTEX.y;
+
+    float balanceo = sin(
+        TIME * velocidad_viento +
         VERTEX.x * 2.0
     );
 
-    // Ráfaga de ventisca: onda más rápida e irregular
-    float gust = sin(TIME * blizzard_speed + VERTEX.x * 5.0)
-               * cos(TIME * gust_frequency);  // modulación de intensidad
+    float rafaga =
+        sin(TIME * velocidad_ventisca + VERTEX.x * 5.0)
+        * cos(TIME * frecuencia_rafagas);
 
-    // Combinar ambos efectos, escalados por altura
-    float total = (sway * wind_strength + gust * blizzard_strength) * height;
+    float movimiento =
+        (balanceo * fuerza_viento + rafaga * fuerza_ventisca)
+        * altura;
 
-    // Aplicar en la dirección del viento (no solo en X)
-    VERTEX.x += wind_direction.x * total;
-    VERTEX.z += wind_direction.z * total * 0.5;
+    VERTEX.x += direccion_viento.x * movimiento;
+    VERTEX.z += direccion_viento.z * movimiento * 0.5;
 }
