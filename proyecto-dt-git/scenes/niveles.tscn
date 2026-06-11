@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bputwojyen5kv" path="res://scripts/niveles.gd" id="1_0s6js"]
 [ext_resource type="PackedScene" uid="uid://brevn70jj0oir" path="res://assets/tile-spawn-end-round.fbx" id="2_acxrc"]
-[ext_resource type="PackedScene" uid="uid://b70o4hgr4hke3" path="res://assets/tile-rock.fbx" id="3_2bp2t"]
 [ext_resource type="PackedScene" uid="uid://clh25i00yyskr" path="res://assets/tile-straight.fbx" id="4_lti75"]
 [ext_resource type="PackedScene" uid="uid://d2nuo57q3qbhv" path="res://assets/tile-corner-round.fbx" id="5_dk2jl"]
 [ext_resource type="PackedScene" uid="uid://cq87xp6g7ea7j" path="res://assets/tile-crossing.fbx" id="6_lypuj"]
-[ext_resource type="PackedScene" uid="uid://cbxshrtgonls0" path="res://assets/tile-crystal.fbx" id="7_la1yu"]
 [ext_resource type="PackedScene" uid="uid://hnb53aex12yv" path="res://assets/tile-tree.fbx" id="8_cqxmp"]
-[ext_resource type="PackedScene" uid="uid://bjg6ppa8sb83q" path="res://tile_grass.tscn" id="9_lypuj"]
+[ext_resource type="PackedScene" uid="uid://2hmfawtn4pm0" path="res://assets/tile-tree-quad.fbx" id="8_la1yu"]
+[ext_resource type="PackedScene" uid="uid://b70o4hgr4hke3" path="res://assets/tile-rock.fbx" id="9_cqxmp"]
+[ext_resource type="PackedScene" uid="uid://d1dlipgux7a0q" path="res://assets/tile.fbx" id="9_xakpu"]
 [ext_resource type="PackedScene" uid="uid://c4ininnwc5xaj" path="res://scenes/basic_enemy.tscn" id="10_0s6js"]
 [ext_resource type="Script" uid="uid://b4arm4uaqq28q" path="res://scripts/spawner.gd" id="11_acxrc"]
 [ext_resource type="PackedScene" uid="uid://dnxc8sr6bg4rk" path="res://scenes/interfaz_jugador.tscn" id="12_la1yu"]
@@ -21,11 +21,12 @@
 [node name="niveles" type="Node3D" unique_id=163296819]
 script = ExtResource("1_0s6js")
 tile_inicio = ExtResource("2_acxrc")
-tile_final = ExtResource("3_2bp2t")
+tile_final = ExtResource("16_k6u61")
 tile_straight = ExtResource("4_lti75")
 tile_esquina = ExtResource("5_dk2jl")
 tile_cruce = ExtResource("6_lypuj")
-tile_cesped = Array[PackedScene]([ExtResource("7_la1yu"), ExtResource("8_cqxmp"), ExtResource("9_lypuj"), ExtResource("9_lypuj"), ExtResource("9_lypuj"), ExtResource("9_lypuj")])
+tile_cesped_bloqueado = Array[PackedScene]([ExtResource("8_cqxmp"), ExtResource("8_la1yu"), ExtResource("9_cqxmp")])
+tile_cesped = ExtResource("9_xakpu")
 tile_enemigo = ExtResource("10_0s6js")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=973575615]

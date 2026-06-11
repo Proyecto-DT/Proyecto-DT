@@ -9,4 +9,4 @@ func sumar_monedas(cantidad):
 	monedas_actualizadas.emit(monedas_totales)
 
 func reset_monedas():
-	monedas_totales = 0
+	monedas_totales = 1000
