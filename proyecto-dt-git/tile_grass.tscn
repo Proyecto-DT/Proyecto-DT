@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bjg6ppa8sb83q"]
+
+[ext_resource type="PackedScene" uid="uid://d1dlipgux7a0q" path="res://assets/tile.fbx" id="1_m4hyd"]
+[ext_resource type="ArrayMesh" uid="uid://ww5sx7303mj0" path="res://models/pasto/pasto.obj" id="2_2a6q3"]
+[ext_resource type="Shader" uid="uid://cvban723teo1o" path="res://Cesped.gdshader" id="2_8iouh"]
+[ext_resource type="Script" uid="uid://ixbyrurd030j" path="res://pasto.gd" id="3_8iouh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khwsv"]
+render_priority = 0
+shader = ExtResource("2_8iouh")
+shader_parameter/wind_speed = 2.0
+shader_parameter/wind_strength = 0.03
+shader_parameter/blizzard_speed = 8.0
+shader_parameter/blizzard_strength = 0.12
+shader_parameter/gust_frequency = 0.4
+shader_parameter/wind_direction = Vector3(1, 0, 0.3)
+shader_parameter/grass_color = Color(0.2, 0.65, 0.35, 1)
+shader_parameter/color_variation = 0.0
+
+[sub_resource type="MultiMesh" id="MultiMesh_4iilf"]
+transform_format = 1
+mesh = ExtResource("2_2a6q3")
+
+[node name="cesped" type="Node3D" unique_id=2018349443]
+
+[node name="tile" parent="." unique_id=316390882 instance=ExtResource("1_m4hyd")]
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="tile" unique_id=1915711159]
+transform = Transform3D(1, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_khwsv")
+multimesh = SubResource("MultiMesh_4iilf")
+script = ExtResource("3_8iouh")

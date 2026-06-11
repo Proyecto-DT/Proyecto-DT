@@ -8,14 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://cq87xp6g7ea7j" path="res://assets/tile-crossing.fbx" id="6_lypuj"]
 [ext_resource type="PackedScene" uid="uid://cbxshrtgonls0" path="res://assets/tile-crystal.fbx" id="7_la1yu"]
 [ext_resource type="PackedScene" uid="uid://hnb53aex12yv" path="res://assets/tile-tree.fbx" id="8_cqxmp"]
-[ext_resource type="PackedScene" uid="uid://d1dlipgux7a0q" path="res://assets/tile.fbx" id="9_xakpu"]
+[ext_resource type="PackedScene" uid="uid://bjg6ppa8sb83q" path="res://tile_grass.tscn" id="9_lypuj"]
 [ext_resource type="PackedScene" uid="uid://c4ininnwc5xaj" path="res://scenes/basic_enemy.tscn" id="10_0s6js"]
 [ext_resource type="Script" uid="uid://b4arm4uaqq28q" path="res://scripts/spawner.gd" id="11_acxrc"]
 [ext_resource type="PackedScene" uid="uid://dnxc8sr6bg4rk" path="res://scenes/interfaz_jugador.tscn" id="12_la1yu"]
 [ext_resource type="Script" uid="uid://c1km1bpyt6po" path="res://scripts/colocar_defensas.gd" id="13_cqxmp"]
 [ext_resource type="PackedScene" uid="uid://ba6h6kri7r08o" path="res://scenes/torreta_gomera.tscn" id="14_xakpu"]
 [ext_resource type="Texture2D" uid="uid://cjxsac6vandbj" path="res://models/Hormiga gomera/Hormiga gomera.png" id="15_vppem"]
-[ext_resource type="PackedScene" uid="uid://cptfl2n726tcy" path="res://scenes/reina_hormiga.tscn" id="16_k6u61"]
 
 [sub_resource type="Environment" id="Environment_4c57u"]
 
@@ -26,15 +25,15 @@ tile_final = ExtResource("3_2bp2t")
 tile_straight = ExtResource("4_lti75")
 tile_esquina = ExtResource("5_dk2jl")
 tile_cruce = ExtResource("6_lypuj")
-tile_cesped = Array[PackedScene]([ExtResource("7_la1yu"), ExtResource("8_cqxmp"), ExtResource("9_xakpu"), ExtResource("9_xakpu"), ExtResource("9_xakpu"), ExtResource("9_xakpu")])
+tile_cesped = Array[PackedScene]([ExtResource("7_la1yu"), ExtResource("8_cqxmp"), ExtResource("9_lypuj"), ExtResource("9_lypuj"), ExtResource("9_lypuj"), ExtResource("9_lypuj")])
 tile_enemigo = ExtResource("10_0s6js")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=973575615]
-transform = Transform3D(1, 0, 0, 0, 0.04803034, 0.99884593, 0, -0.99884593, 0.04803034, 7.069357, 7.830677, 6.204026)
+transform = Transform3D(1, 0, 0, 0, 0.04803034, 0.99884593, 0, -0.99884593, 0.04803034, 7.069357, 5.6864967, 6.204026)
 fov = 100.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2070456160]
-transform = Transform3D(-0.01870674, 0.99676585, -0.07815331, -0.7683842, 0.035680883, 0.63899344, 0.63971543, 0.07200525, 0.76523167, 8.717601, 14.894268, 3.0860834)
+transform = Transform3D(-0.01870674, 0.99676585, -0.07815331, -0.7683842, 0.035680883, 0.63899344, 0.63971543, 0.07200525, 0.76523167, 8.717601, 12.750088, 3.0860834)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1630789041]
 environment = SubResource("Environment_4c57u")
@@ -64,8 +63,5 @@ grow_vertical = 0
 script = ExtResource("13_cqxmp")
 torreta_gomera = ExtResource("14_xakpu")
 colocar_defensas_icono = ExtResource("15_vppem")
-
-[node name="Reina" parent="." unique_id=774188681 instance=ExtResource("16_k6u61")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7359152, 0, 10.394582)
 
 [connection signal="pressed" from="InterfazJugador/ColocarHormigaGomera2" to="InterfazJugador/ColocarHormigaGomera2" method="_on_pressed"]
