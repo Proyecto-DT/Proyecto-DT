@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dqjn2sq4es401"]
+
+[ext_resource type="Script" uid="uid://btk5hpmecb656" path="res://scripts/pantalla_final.gd" id="1_neda8"]
+
+[node name="PantallaFinal" type="Control" unique_id=1604222932]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_neda8")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1901459766]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer" unique_id=1881378282]
+layout_mode = 2
+
+[node name="TituloVictoria" type="Label" parent="CenterContainer" unique_id=1034833708]
+layout_mode = 2
+text = "¡Haz ganado. Bien hecho!"
+
+[node name="TituloDerrota" type="Label" parent="CenterContainer" unique_id=432984977]
+layout_mode = 2
+text = "Has perdido. Intentalo otra vez."
+horizontal_alignment = 1
+
+[node name="Puntaje" type="Label" parent="CenterContainer" unique_id=337894654]
+layout_mode = 2
+text = "Puntaje:"
+
+[node name="BotonMenu" type="Button" parent="CenterContainer" unique_id=1843500846]
+layout_mode = 2
+text = "Menu "
+
+[node name="BotonContinuar" type="Button" parent="CenterContainer" unique_id=1818916155]
+layout_mode = 2
+text = "Continuar "

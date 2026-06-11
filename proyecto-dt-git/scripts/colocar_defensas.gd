@@ -22,9 +22,6 @@ func _on_estado_cambiado(nuevo_estado):
 		_cancelar()
 
 func _on_pressed() -> void:
-	if GameManager.estado_actual != GameManager.EstadoJuego.PREPARACION:
-		print("Solo puedes colocar torretas en modo preparación")
-		return
 	if GestorMonedas.monedas_totales < costo_torreta:
 		print("No alcanza")
 		return
@@ -33,7 +30,6 @@ func _on_pressed() -> void:
 	if vista_previa == null:
 		vista_previa = torreta_gomera.instantiate()
 		get_tree().current_scene.add_child(vista_previa)
-		#vista_previa.set_meta("es_vista_previa", true)
 		
 		var disparar = vista_previa.get_node_or_null("TimerDisparo")
 		if disparar:
@@ -75,9 +71,10 @@ func _colocar_defensa() -> void:
 		return
 		
 	if not GameManager.es_cesped(vista_previa.global_position):
-		print("ERROR: No es un cesped")
+		print("No es un cesped")
 		return
 	
+	GameManager.ocupar_celda(vista_previa.global_position)
 	GestorMonedas.sumar_monedas(-costo_torreta)
 	var torreta = torreta_gomera.instantiate()
 	get_tree().current_scene.add_child(torreta)

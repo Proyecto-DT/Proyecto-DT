@@ -7,6 +7,7 @@ var estado_actual: EstadoJuego = EstadoJuego.MENU
 var nivel_actual: Node = null
 
 var celdas_cesped: Array[Vector2i] = []
+var celda_ocupada: Array[Vector2i] = []
 
 func _ready():
 	print("GameManager listo. Estado inicial: MENU")
@@ -104,7 +105,13 @@ func _buscar_reina(nodo: Node) -> Node:
 	
 func registrar_cesped(celdas: Array[Vector2i]):
 	celdas_cesped = celdas
+	celda_ocupada = []
 	
 func es_cesped(pos_mundo: Vector3):
 	var celda = Vector2i(roundi(pos_mundo.x), roundi(pos_mundo.z))
-	return celdas_cesped.has(celda)
+	return celdas_cesped.has(celda) and not celda_ocupada.has(celda)
+	
+func ocupar_celda(pos_mundo: Vector3):
+	var celda = Vector2i(roundi(pos_mundo.x), roundi(pos_mundo.z))
+	if not celda_ocupada.has(celda):
+		celda_ocupada.append(celda)
