@@ -15,7 +15,6 @@
 [ext_resource type="Script" uid="uid://c1km1bpyt6po" path="res://scripts/colocar_defensas.gd" id="13_cqxmp"]
 [ext_resource type="PackedScene" uid="uid://ba6h6kri7r08o" path="res://scenes/torreta_gomera.tscn" id="14_xakpu"]
 [ext_resource type="Texture2D" uid="uid://cjxsac6vandbj" path="res://models/Hormiga gomera/Hormiga gomera.png" id="15_vppem"]
-[ext_resource type="PackedScene" uid="uid://cptfl2n726tcy" path="res://scenes/reina_hormiga.tscn" id="16_k6u61"]
 
 [sub_resource type="Environment" id="Environment_4c57u"]
 
@@ -31,11 +30,11 @@ tile_cesped = ExtResource("9_xakpu")
 tile_enemigo = ExtResource("10_0s6js")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=973575615]
-transform = Transform3D(1, 0, 0, 0, 0.04803034, 0.99884593, 0, -0.99884593, 0.04803034, 7.069357, 7.830677, 6.204026)
+transform = Transform3D(1, 0, 0, 0, 0.04803034, 0.99884593, 0, -0.99884593, 0.04803034, 7.069357, 5.6864967, 6.204026)
 fov = 100.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2070456160]
-transform = Transform3D(-0.01870674, 0.99676585, -0.07815331, -0.7683842, 0.035680883, 0.63899344, 0.63971543, 0.07200525, 0.76523167, 8.717601, 14.894268, 3.0860834)
+transform = Transform3D(-0.01870674, 0.99676585, -0.07815331, -0.7683842, 0.035680883, 0.63899344, 0.63971543, 0.07200525, 0.76523167, 8.717601, 12.750088, 3.0860834)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1630789041]
 environment = SubResource("Environment_4c57u")
