@@ -8,7 +8,7 @@ uniform float fuerza_ventisca = 0.12;
 uniform float frecuencia_rafagas = 0.4;
 uniform vec3 direccion_viento = vec3(1.0, 0.0, 0.3);
 
-uniform vec4 color_pasto : source_color = vec4(0.20, 0.65, 0.35, 1.0);
+uniform vec4 color_pasto : source_color = vec4(0.25, 0.65, 0.45, 1.0);
 uniform float variacion_color = 0.0;
 
 void fragment() {
