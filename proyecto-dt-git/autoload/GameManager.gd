@@ -5,7 +5,9 @@ signal estado_cambiado(nuevo_estado)
 enum EstadoJuego { MENU, PREPARACION, INVASION, VICTORIA, DERROTA }
 var estado_actual: EstadoJuego = EstadoJuego.MENU
 var nivel_actual: Node = null
-var puntaje_actual: int = 0  # <--- NUEVO
+
+var celdas_cesped: Array[Vector2i] = []
+var celda_ocupada: Array[Vector2i] = []
 
 func _ready():
 	print("GameManager listo. Estado inicial: MENU")
@@ -19,7 +21,6 @@ func cambiar_estado(nuevo_estado: EstadoJuego):
 		EstadoJuego.MENU:
 			get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
 			nivel_actual = null
-			puntaje_actual = 0
 		
 		EstadoJuego.PREPARACION:
 			if nivel_actual == null or not is_instance_valid(nivel_actual):
@@ -45,12 +46,14 @@ func _reiniciar_spawner():
 		spawner.enemigos_vivos = 0
 		print("Spawner reiniciado. Listo para nueva invasión.")
 
-func _iniciar_invasion():
+func _iniciar_invasion(ruta = null):
 	print("Iniciando invasión...")
 	if not nivel_actual or not is_instance_valid(nivel_actual):
 		nivel_actual = get_tree().current_scene
 	
 	var spawner = _buscar_spawner(nivel_actual)
+	spawner.configurar_ruta(ruta)
+	
 	if spawner:
 		# conectar señal de victoria
 		if not spawner.todas_hormigas_muertas.is_connected(_on_victoria):
@@ -77,7 +80,7 @@ func _on_derrota():
 	cambiar_estado(EstadoJuego.DERROTA)
 
 func _mostrar_pantalla_final():
-	get_tree().change_scene_to_file("res://scenes/menu/pantalla_final.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/menu/pantalla_final.tscn")
 
 func _buscar_spawner(nodo: Node) -> Node:
 	if not nodo:
@@ -101,6 +104,15 @@ func _buscar_reina(nodo: Node) -> Node:
 			return encontrado
 	return null
 
-func sumar_puntaje(puntos: int):
-	puntaje_actual += puntos
-	print("Puntaje acumulado: ", puntaje_actual)
+func registrar_cesped(celdas: Array[Vector2i]):
+	celdas_cesped = celdas
+	celda_ocupada = []
+	
+func es_cesped(pos_mundo: Vector3):
+	var celda = Vector2i(roundi(pos_mundo.x), roundi(pos_mundo.z))
+	return celdas_cesped.has(celda) and not celda_ocupada.has(celda)
+	
+func ocupar_celda(pos_mundo: Vector3):
+	var celda = Vector2i(roundi(pos_mundo.x), roundi(pos_mundo.z))
+	if not celda_ocupada.has(celda):
+		celda_ocupada.append(celda)

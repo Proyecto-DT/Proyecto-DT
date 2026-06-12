@@ -15,42 +15,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TituloVictoria" type="Label" parent="." unique_id=1034833708]
+[node name="TituloVictoria" type="Label" parent="ColorRect" unique_id=1034833708]
 layout_mode = 0
-offset_left = 495.0
-offset_top = 119.0
-offset_right = 689.0
-offset_bottom = 142.0
+offset_left = 677.0
+offset_top = 204.0
+offset_right = 871.0
+offset_bottom = 227.0
 text = "¡Haz ganado. Bien hecho!"
 
-[node name="TituloDerrota" type="Label" parent="." unique_id=432984977]
+[node name="TituloDerrota" type="Label" parent="ColorRect" unique_id=432984977]
 layout_mode = 0
-offset_left = 469.0
-offset_top = 94.0
-offset_right = 713.0
-offset_bottom = 117.0
+offset_left = 651.0
+offset_top = 179.0
+offset_right = 895.0
+offset_bottom = 202.0
 text = "Has perdido. Intentalo otra vez."
 
-[node name="Puntaje" type="Label" parent="." unique_id=337894654]
+[node name="Puntaje" type="Label" parent="ColorRect" unique_id=337894654]
 layout_mode = 0
-offset_left = 560.0
-offset_top = 154.0
-offset_right = 624.0
-offset_bottom = 177.0
+offset_left = 742.0
+offset_top = 239.0
+offset_right = 806.0
+offset_bottom = 262.0
 text = "Puntaje:"
 
-[node name="BotonMenu" type="Button" parent="." unique_id=1843500846]
+[node name="BotonMenu" type="Button" parent="ColorRect" unique_id=1843500846]
 layout_mode = 0
-offset_left = 548.0
-offset_top = 349.0
-offset_right = 652.0
-offset_bottom = 380.0
+offset_left = 730.0
+offset_top = 434.0
+offset_right = 834.0
+offset_bottom = 465.0
 text = "Menu "
 
-[node name="BotonContinuar" type="Button" parent="." unique_id=1818916155]
+[node name="BotonContinuar" type="Button" parent="ColorRect" unique_id=1818916155]
 layout_mode = 0
-offset_left = 534.0
-offset_top = 422.0
-offset_right = 671.0
-offset_bottom = 453.0
+offset_left = 716.0
+offset_top = 507.0
+offset_right = 853.0
+offset_bottom = 538.0
 text = "Continuar "

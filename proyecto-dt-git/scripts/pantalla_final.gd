@@ -1,19 +1,25 @@
 extends Control
 
-@onready var titulo_victoria: Label = $TituloVictoria
-@onready var titulo_derrota: Label = $TituloDerrota
-@onready var puntaje_label: Label = $Puntaje
-@onready var boton_continuar: Button = $BotonContinuar
-@onready var boton_menu: Button = $BotonMenu
+@onready var titulo_victoria: Label = $ColorRect/TituloVictoria
+@onready var titulo_derrota: Label = $ColorRect/TituloDerrota
+@onready var puntaje_label: Label = $ColorRect/Puntaje
+@onready var boton_continuar: Button = $ColorRect/BotonContinuar
+@onready var boton_menu: Button = $ColorRect/BotonMenu
+@onready var contenedor = $ColorRect
 
 func _ready():
+	
+	contenedor.size = Vector2(get_viewport().size.x,get_viewport().size.y)
+	
 	var es_victoria = (GameManager.estado_actual == GameManager.EstadoJuego.VICTORIA)
 	
 	titulo_victoria.visible = es_victoria
 	titulo_derrota.visible = not es_victoria
 	boton_continuar.visible = es_victoria
 	
+	contenedor.color = "ff00001e"
 	if es_victoria:
+		contenedor.color = "00e65f1e"
 		GestorPuntaje.sumar_puntos(100)
 	
 	puntaje_label.text = "Puntaje: " + str(GestorPuntaje.puntaje_total)
@@ -27,5 +33,4 @@ func _on_boton_menu_pressed():
 
 func _on_boton_continuar_pressed():
 	print("Botón Continuar presionado - Nueva oleada")
-	GameManager.puntaje_actual += 100
 	GameManager.cambiar_estado(GameManager.EstadoJuego.PREPARACION)
