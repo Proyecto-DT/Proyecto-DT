@@ -1,4 +1,4 @@
-extends Node3D
+'''extends Node3D
 
 var menu_ui = null
 var nivel = null
@@ -46,3 +46,4 @@ func ocultar_menu():
 func _on_nueva_partida():
 	ocultar_menu()
 	GameManager.iniciar_nueva_partida()
+'''

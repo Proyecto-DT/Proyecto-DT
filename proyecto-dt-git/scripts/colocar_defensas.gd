@@ -24,6 +24,7 @@ func _on_estado_cambiado(nuevo_estado):
 func _on_pressed() -> void:
 	if GestorMonedas.monedas_totales < costo_torreta:
 		print("No alcanza")
+		return
 	
 	colocando = true
 	if vista_previa == null:
