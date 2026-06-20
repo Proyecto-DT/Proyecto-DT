@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dnxc8sr6bg4rk"]
 
-[ext_resource type="Script" uid="uid://ckiisq6degkoa" path="res://scenes/interfaz_jugador.gd" id="1_pf5j2"]
+[ext_resource type="Script" uid="uid://ckiisq6degkoa" path="res://scripts/interfaz_jugador.gd" id="1_pf5j2"]
 [ext_resource type="Script" uid="uid://c1km1bpyt6po" path="res://scripts/colocar_defensas.gd" id="1_q2rad"]
 [ext_resource type="PackedScene" uid="uid://ba6h6kri7r08o" path="res://scenes/torreta_gomera.tscn" id="2_rpr3l"]
 [ext_resource type="Texture2D" uid="uid://cjxsac6vandbj" path="res://models/Hormiga gomera/Hormiga gomera.png" id="3_pf5j2"]

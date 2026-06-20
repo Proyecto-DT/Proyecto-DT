@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d1dlipgux7a0q" path="res://assets/tile.fbx" id="1_m4hyd"]
 [ext_resource type="ArrayMesh" uid="uid://ww5sx7303mj0" path="res://models/pasto/pasto.obj" id="2_2a6q3"]
-[ext_resource type="Shader" uid="uid://cvban723teo1o" path="res://Cesped.gdshader" id="2_8iouh"]
-[ext_resource type="Script" uid="uid://ixbyrurd030j" path="res://pasto.gd" id="3_8iouh"]
+[ext_resource type="Shader" uid="uid://cvban723teo1o" path="res://shaders/Cesped.gdshader" id="2_8iouh"]
+[ext_resource type="Script" uid="uid://ixbyrurd030j" path="res://scripts/pasto.gd" id="3_8iouh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_khwsv"]
 render_priority = 0

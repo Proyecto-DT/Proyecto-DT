@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cq87xp6g7ea7j" path="res://assets/tile-crossing.fbx" id="6_lypuj"]
 [ext_resource type="PackedScene" uid="uid://cbxshrtgonls0" path="res://assets/tile-crystal.fbx" id="7_la1yu"]
 [ext_resource type="PackedScene" uid="uid://hnb53aex12yv" path="res://assets/tile-tree.fbx" id="8_cqxmp"]
-[ext_resource type="PackedScene" uid="uid://bjg6ppa8sb83q" path="res://tile_grass.tscn" id="9_lypuj"]
+[ext_resource type="PackedScene" uid="uid://bjg6ppa8sb83q" path="res://scenes/tile_grass.tscn" id="9_lypuj"]
 [ext_resource type="PackedScene" uid="uid://c4ininnwc5xaj" path="res://scenes/basic_enemy.tscn" id="10_0s6js"]
 [ext_resource type="Script" uid="uid://b4arm4uaqq28q" path="res://scripts/spawner.gd" id="11_acxrc"]
 [ext_resource type="PackedScene" uid="uid://dnxc8sr6bg4rk" path="res://scenes/interfaz_jugador.tscn" id="12_la1yu"]
