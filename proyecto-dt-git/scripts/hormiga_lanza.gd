@@ -51,8 +51,6 @@ func _ataque_de_lanza():
 	enemigo_actual.vida -= dano_lanza
 	if enemigo_actual.has_node("SubViewport/ProgressBar"):
 		enemigo_actual.get_node("SubViewport/ProgressBar").value = enemigo_actual.vida
-	if enemigo_actual.vida <= 0:
-		enemigo_actual.morir()
 
 func _on_timer_golpe_timeout() -> void:
 	_ataque_de_lanza()

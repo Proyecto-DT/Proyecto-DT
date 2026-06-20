@@ -33,7 +33,11 @@ window/size/viewport_height=900
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+enabled=PackedStringArray()
+
+[global_group]
+
+Proyectiles=""
 
 [rendering]
 
