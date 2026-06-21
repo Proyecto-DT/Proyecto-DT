@@ -1,20 +1,22 @@
 extends Node3D
 class_name Spawner
 
-signal oleada_completada
 signal todas_hormigas_muertas
 
 @export var escena_enemigo: PackedScene
-@export var ruta_a_seguir: Path3D
 @export var total_enemigos: int = 10
 @export var intervalo_generacion: float = 0.5
 
+var ruta_a_seguir: Path3D
 var enemigos_generados: int = 0
 var enemigos_vivos: int = 0
 var estado_generador: bool = false
 
 func _ready():
 	pass
+
+func configurar_ruta(ruta: Path3D):
+	ruta_a_seguir = ruta
 
 func inicio_generacion():
 	estado_generador = true
@@ -31,27 +33,27 @@ func siguiente_generacion_enemigo():
 		await get_tree().create_timer(intervalo_generacion).timeout
 		siguiente_generacion_enemigo()
 	else:
-		pass
+		if enemigos_generados >= total_enemigos:
+			_verificar_todas_muertas()
 
 func aparicion_enemiga():
-	if not escena_enemigo or not ruta_a_seguir:
-		print("Error: Faltan asignar la escena del enemigo o la ruta")
-		return
-	
 	var enemigo = escena_enemigo.instantiate()
 	add_child(enemigo)
 	
 	if enemigo.has_method("set_ruta"):
 		enemigo.set_ruta(ruta_a_seguir)
 	
-	# conectar señal de muerte
 	if enemigo.has_signal("murio"):
 		if not enemigo.murio.is_connected(_on_enemigo_murio):
 			enemigo.murio.connect(_on_enemigo_murio)
 
-func _on_enemigo_murio():
+func _on_enemigo_murio(puntos, monedas):
 	enemigos_vivos -= 1
 	print("Enemigo muerto. Vivos restantes: ", enemigos_vivos)
+	
+	GestorPuntaje.sumar_puntos(puntos)
+	GestorMonedas.sumar_monedas(monedas)
+	
 	_verificar_todas_muertas()
 
 func _verificar_todas_muertas():

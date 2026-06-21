@@ -5,7 +5,7 @@ var desplazamiento_actual = 0.0
 var enemigo_en_rango:Array[Node3D]
 var enemigo_actual:Node3D = null
 var obtener_progreso:float = 0
-@export var dano_lanza = 10
+@export var dano = 10
 
 func _process(delta):
 	enemigo_actual = obtener_enemigo_mas_avanzado()
@@ -48,11 +48,8 @@ func _ataque_de_lanza():
 		return
 	if !is_instance_valid(enemigo_actual):
 		return
-	enemigo_actual.vida -= dano_lanza
 	if enemigo_actual.has_node("SubViewport/ProgressBar"):
 		enemigo_actual.get_node("SubViewport/ProgressBar").value = enemigo_actual.vida
-	if enemigo_actual.vida <= 0:
-		enemigo_actual.morir()
-
+	
 func _on_timer_golpe_timeout() -> void:
 	_ataque_de_lanza()

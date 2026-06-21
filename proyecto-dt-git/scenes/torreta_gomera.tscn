@@ -13,10 +13,12 @@ height = 0.7
 radius = 2.0
 
 [node name="TorretaGomera" type="Node3D" unique_id=686651658]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_5b56a")
 escena_proyectil = ExtResource("2_tbf50")
 
 [node name="Hormiga" type="Node3D" parent="." unique_id=2114981349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24957511, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hormiga" unique_id=1034136176]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -37,7 +39,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1885312354]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1827962, 0.15208651)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43237132, 0.15208651)
 
 [connection signal="area_entered" from="Rango" to="." method="_on_rango_area_entered"]
 [connection signal="area_exited" from="Rango" to="." method="_on_rango_area_exited"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dm2as7k3nov2c"]
+
+[ext_resource type="Script" uid="uid://b5yyt8apook63" path="res://scripts/splash_screen.gd" id="1_hsxvm"]
+[ext_resource type="Texture2D" uid="uid://ygu2gfafygot" path="res://icon.svg" id="1_n4g2v"]
+
+[node name="SplashScreen" type="Control" unique_id=1222688715]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hsxvm")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=91628451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.08627451, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=1761576404]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/CenterContainer" unique_id=1364014867]
+layout_mode = 2
+texture = ExtResource("1_n4g2v")
+expand_mode = 1
+stretch_mode = 3

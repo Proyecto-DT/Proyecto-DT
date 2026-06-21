@@ -8,27 +8,18 @@ var desplazamiento_actual: float = 0.0
 var se_mueve: bool = false
 var longitud_total: float = 0.0
 var vida: float = 100
+var valor_puntos = 10
+var valor_monedas = 5
 
-signal murio
+signal murio(puntos, monedas)
 
 func _ready():
 	add_to_group("enemigos")
 
 func set_ruta(nueva_ruta: Path3D):
-	if nueva_ruta == null:
-		print("ERROR: La ruta recibida es null")
-		return
-	
 	ruta = nueva_ruta
 	
-	if not ruta.curve:
-		print("ERROR: El Path3D no tiene una curva asignada")
-		return
-	
 	longitud_total = ruta.curve.get_baked_length()
-	if longitud_total == 0:
-		print("ERROR: La curva no tiene puntos")
-		return
 	
 	ruta_seguimiento = PathFollow3D.new()
 	ruta.add_child(ruta_seguimiento)
@@ -58,15 +49,10 @@ func _physics_process(delta):
 
 func llegar_al_final():
 	se_mueve = false
-	
 	if ruta_seguimiento:
 		ruta_seguimiento.queue_free()
-	
-	# daño a la reina
 	_danar_reina()
-	
-	# morir despues de dañar a la reina
-	morir()
+	morir(false)
 
 func _danar_reina():
 	var reina = _buscar_reina()
@@ -85,12 +71,15 @@ func _on_area_3d_area_entered(area: Area3D):
 		vida = vida - area.dano
 		$SubViewport/ProgressBar.value = vida
 		if vida <= 0:
-			morir()
+			morir(true)
 		area.queue_free()
 
-func morir():
-	murio.emit()
-	queue_free()
+func morir(muere_por_torreta):
+	if muere_por_torreta:
+		murio.emit(valor_puntos, valor_monedas)
+	else:
+		murio.emit(0, 0)
+	call_deferred("queue_free")
 
 func pausar_movimiento():
 	se_mueve = false

@@ -17,18 +17,27 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Proyecto DT Git"
 run/main_scene="uid://cki3qkmwwykxb"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*uid://tk2aorv5h7gm"
-GestorPuntaje="*uid://cq1ekfxae54ny"
 GestorMonedas="*uid://beud4oiehsios"
+GestorPuntaje="*uid://cq1ekfxae54ny"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [global_group]
 
-Proyectiles="Todos los proyectiles"
+Proyectiles=""
 
 [rendering]
 
