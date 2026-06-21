@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cof41pggrcldr"]
+
+[ext_resource type="Script" uid="uid://b231fo47xuvci" path="res://scripts/hormiga_lanza.gd" id="1_v6q85"]
+[ext_resource type="Texture2D" uid="uid://dkdm0a6i675d5" path="res://models/Hormiga lanza/black_ant_lanza.png" id="2_nuj4g"]
+[ext_resource type="ArrayMesh" uid="uid://dl37gf4fol4ae" path="res://models/Hormiga lanza/black ant lanza.obj" id="2_tmcij"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0on17"]
+albedo_texture = ExtResource("2_nuj4g")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v6q85"]
+
+[node name="HormigaLanza" type="Node3D" unique_id=1955614556]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_v6q85")
+
+[node name="Hormiga" type="Node3D" parent="." unique_id=116161007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hormiga" unique_id=1589782026]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.16034447, 0)
+material_override = SubResource("StandardMaterial3D_0on17")
+mesh = ExtResource("2_tmcij")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=131960264]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=544304003]
+transform = Transform3D(1.3232031, 0, 0, 0, 1, 0, 0, 0, 1.7238774, 0, 0.9859631, 0)
+shape = SubResource("CylinderShape3D_v6q85")
+
+[node name="TimerGolpe" type="Timer" parent="." unique_id=2098606185]
+wait_time = 0.5
+autostart = true
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="timeout" from="TimerGolpe" to="." method="_on_timer_golpe_timeout"]

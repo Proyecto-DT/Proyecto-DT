@@ -1,14 +1,13 @@
 extends Button
 
-@export var torreta_gomera: PackedScene
-@export var colocar_defensas_icono: Texture2D
-@export var costo_torreta: int = 50
+@export var hormiga_lanza: PackedScene
+@export var colocar_defensas_icon: Texture2D
 
 var colocando: bool = false
 var vista_previa: Node3D = null 
 
 func _ready() -> void:
-	icon = colocar_defensas_icono
+	icon = colocar_defensas_icon
 	# señal de cambio de estado
 	GameManager.estado_cambiado.connect(_on_estado_cambiado)
 	# actualizar visibilidad inicial
@@ -22,19 +21,15 @@ func _on_estado_cambiado(nuevo_estado):
 		_cancelar()
 
 func _on_pressed() -> void:
-	if GestorMonedas.monedas_totales < costo_torreta:
-		print("No alcanza")
+	if GameManager.estado_actual != GameManager.EstadoJuego.PREPARACION:
 		return
 	
 	colocando = true
 	if vista_previa == null:
-		vista_previa = torreta_gomera.instantiate()
+		vista_previa = hormiga_lanza.instantiate()
 		get_tree().current_scene.add_child(vista_previa)
+		vista_previa.set_meta("es_vista_previa", true)
 		
-		var disparar = vista_previa.get_node_or_null("TimerDisparo")
-		if disparar:
-			disparar.stop()
-
 func _process(_delta: float) -> void:
 	if not colocando or vista_previa == null:
 		return
@@ -69,19 +64,11 @@ func _input(evento: InputEvent) -> void:
 func _colocar_defensa() -> void:
 	if vista_previa == null:
 		return
-		
-	if not GameManager.es_cesped(vista_previa.global_position):
-		print("No es un cesped")
-		return
-	
-	GameManager.ocupar_celda(vista_previa.global_position)
-	GestorMonedas.sumar_monedas(-costo_torreta)
-	var torreta = torreta_gomera.instantiate()
-	get_tree().current_scene.add_child(torreta)
-	torreta.global_position = vista_previa.global_position
-	AudioManager.tower_placed()
+	var lanza = hormiga_lanza.instantiate()
+	get_tree().current_scene.add_child(lanza)
+	lanza.global_position = vista_previa.global_position
 	_cancelar()
-
+	
 func _cancelar() -> void:
 	colocando = false
 	if vista_previa:
