@@ -2,6 +2,7 @@ extends Button
 
 @export var hormiga_lanza: PackedScene
 @export var colocar_defensas_icon: Texture2D
+@export var costo_lanza: int = 20
 
 var colocando: bool = false
 var vista_previa: Node3D = null 
@@ -23,12 +24,17 @@ func _on_estado_cambiado(nuevo_estado):
 func _on_pressed() -> void:
 	if GameManager.estado_actual != GameManager.EstadoJuego.PREPARACION:
 		return
-	
+	if GestorMonedas.monedas_totales < costo_lanza:
+		print("No alcanza")
+		return
 	colocando = true
 	if vista_previa == null:
 		vista_previa = hormiga_lanza.instantiate()
 		get_tree().current_scene.add_child(vista_previa)
-		vista_previa.set_meta("es_vista_previa", true)
+		
+		var golpe = vista_previa.get_node_or_null("TimerGolpe")
+		if golpe:
+			golpe.stop()
 		
 func _process(_delta: float) -> void:
 	if not colocando or vista_previa == null:
@@ -64,6 +70,11 @@ func _input(evento: InputEvent) -> void:
 func _colocar_defensa() -> void:
 	if vista_previa == null:
 		return
+	if not GameManager.es_cesped(vista_previa.global_position):
+		print("No es un cesped")
+		return
+	GameManager.ocupar_celda(vista_previa.global_position)
+	GestorMonedas.sumar_monedas(-costo_lanza)
 	var lanza = hormiga_lanza.instantiate()
 	get_tree().current_scene.add_child(lanza)
 	lanza.global_position = vista_previa.global_position
