@@ -39,6 +39,12 @@ theme_override_fonts/font = ExtResource("2_6387k")
 theme_override_font_sizes/font_size = 40
 text = "Opciones"
 
+[node name="Creditos" type="Button" parent="PanelMenu" unique_id=168731260]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6387k")
+theme_override_font_sizes/font_size = 40
+text = "Créditos"
+
 [node name="Salir" type="Button" parent="PanelMenu" unique_id=1216617955]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_6387k")
@@ -62,6 +68,41 @@ theme_override_font_sizes/font_size = 102
 text = "Ants VS Ants"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Creditos" type="VBoxContainer" parent="." unique_id=436844471]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelCreditos" type="Label" parent="Creditos" unique_id=536402839]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6387k")
+theme_override_font_sizes/font_size = 40
+text = "Productor
+Bustelo Nicolás 
+Game Design 
+Pelleritti Nicolás 
+Arte
+Colantonio Franco 
+Sonido 
+Gauto Martina Carlos
+"
+horizontal_alignment = 1
+
+[node name="VolverAlMenu" type="Button" parent="Creditos" unique_id=2132921555]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6387k")
+theme_override_font_sizes/font_size = 40
+text = "Volver al menu"
 
 [node name="Opciones" type="VBoxContainer" parent="." unique_id=396234542]
 layout_mode = 1
@@ -113,5 +154,7 @@ text = "Volver"
 
 [connection signal="pressed" from="PanelMenu/NuevaPartida" to="." method="_on_nueva_partida_pressed"]
 [connection signal="pressed" from="PanelMenu/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="PanelMenu/Creditos" to="." method="_on_creditos_pressed"]
 [connection signal="pressed" from="PanelMenu/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Creditos/VolverAlMenu" to="." method="_on_volver_al_menu_pressed"]
 [connection signal="pressed" from="Opciones/Volver" to="." method="_on_volver_pressed"]

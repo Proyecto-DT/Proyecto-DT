@@ -1,6 +1,7 @@
 extends Control
 
 @onready var panel_menu: VBoxContainer = $PanelMenu
+@onready var creditos: VBoxContainer = $Creditos
 @onready var opciones: VBoxContainer = $Opciones
 @onready var panel_volumen: VBoxContainer = $PanelVolumen
 @onready var volumen_slider: HSlider = $PanelVolumen/VolumenSlider
@@ -10,6 +11,7 @@ extends Control
 
 func _ready():
 	panel_menu.visible = true
+	creditos.visible = false
 	opciones.visible = false
 	panel_volumen.visible = false
 	
@@ -120,3 +122,14 @@ func _centrar_panel_volumen():
 	for child in panel_volumen.get_children():
 		if child is Control and child != label_volumen and child != volumen_slider and child != boton_volver_volumen:
 			child.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+
+
+func _on_creditos_pressed() -> void:
+	AudioManager.ui_select()
+	panel_menu.visible = false 
+	creditos.visible = true 
+
+func _on_volver_al_menu_pressed() -> void:
+	AudioManager.ui_select()
+	panel_menu.visible = true
+	creditos.visible = false
