@@ -55,7 +55,7 @@ func _crear_label_preparacion():
 		label_preparacion = Label.new()
 		label_preparacion.text = "Presiona Enter para terminar preparación"
 		label_preparacion.add_theme_color_override("font_color", Color.WHITE)
-		label_preparacion.add_theme_font_size_override("font_size", 30)
+		label_preparacion.add_theme_font_size_override("font_size", 20)
 		label_preparacion.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label_preparacion.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		label_preparacion.modulate.a = 1.0
@@ -64,8 +64,8 @@ func _crear_label_preparacion():
 		add_child(canvas)
 		canvas.add_child(label_preparacion)
 		
-		label_preparacion.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y - 100)
-		
+		label_preparacion.position = Vector2(0, get_viewport().size.y - 250)
+		label_preparacion.size = Vector2(get_viewport().size.x, 40)		
 		label_preparacion.visible = false
 
 func _mostrar_label_preparacion():

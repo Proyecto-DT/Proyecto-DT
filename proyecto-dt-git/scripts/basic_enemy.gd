@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var velocidad: float = 1.5
 @export var ruta: Path3D = null
+@export var escena_explosion: PackedScene
 
 var ruta_seguimiento: PathFollow3D
 var desplazamiento_actual: float = 0.0
@@ -51,6 +52,7 @@ func llegar_al_final():
 	se_mueve = false
 	if ruta_seguimiento:
 		ruta_seguimiento.queue_free()
+	_crear_explosion(global_position)
 	_danar_reina()
 	morir(false)
 
@@ -77,11 +79,29 @@ func _on_area_3d_area_entered(area: Area3D):
 func morir(muere_por_torreta):
 	if muere_por_torreta:
 		murio.emit(valor_puntos, valor_monedas)
-		AudioManager.enemy_dead()
 	else:
 		murio.emit(0, 0)
-		AudioManager.enemy_dead()
 	call_deferred("queue_free")
+	
+func _crear_explosion(posicion: Vector3):
+	if escena_explosion == null:
+		return
+
+	var explosion = escena_explosion.instantiate()
+	get_tree().current_scene.add_child(explosion)
+
+	explosion.global_position = posicion + Vector3(-0.7, 0.5, 0)
+
+	print("Posición enemigo:", posicion)
+	print("Posición explosión:", explosion.global_position)
+
+	explosion.restart()
+	explosion.emitting = true
+
+	await get_tree().create_timer(2.0).timeout
+
+	if is_instance_valid(explosion):
+		explosion.queue_free()
 
 func pausar_movimiento():
 	se_mueve = false

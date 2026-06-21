@@ -52,6 +52,7 @@ func _on_enemigo_murio(puntos, monedas):
 	enemigos_vivos -= 1
 	print("Enemigo muerto. Vivos restantes: ", enemigos_vivos)
 	
+	AudioManager.enemy_dead()
 	GestorPuntaje.sumar_puntos(puntos)
 	GestorMonedas.sumar_monedas(monedas)
 	

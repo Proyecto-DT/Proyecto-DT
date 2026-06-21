@@ -2,6 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://cbsyjut6qftai" path="res://models/red ant.obj" id="1_3i4hm"]
 [ext_resource type="Script" uid="uid://qp4bpm8m4sm2" path="res://scripts/basic_enemy.gd" id="1_md22f"]
+[ext_resource type="PackedScene" uid="uid://dmgx7d1r7o2oa" path="res://scenes/Explosion.tscn" id="2_fn5nn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_md22f"]
 size = Vector3(0.22167969, 0.16693115, 0.4499588)
@@ -27,6 +28,7 @@ viewport_path = NodePath("SubViewport")
 [node name="BasicEnemy" type="CharacterBody3D" unique_id=1489842584]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_md22f")
+escena_explosion = ExtResource("2_fn5nn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=854173641]
 transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, 0, 0)
