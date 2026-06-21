@@ -1,7 +1,7 @@
 extends Node3D
 class_name Spawner
 
-signal oleada_completada
+#signal oleada_completada
 signal todas_hormigas_muertas
 
 @export var escena_enemigo: PackedScene
@@ -40,6 +40,7 @@ func siguiente_generacion_enemigo():
 func aparicion_enemiga():
 	var enemigo = escena_enemigo.instantiate()
 	add_child(enemigo)
+	AudioManager.spawn_enemy()
 	
 	if enemigo.has_method("set_ruta"):
 		enemigo.set_ruta(ruta_a_seguir)

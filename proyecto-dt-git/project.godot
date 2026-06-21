@@ -25,6 +25,7 @@ config/icon="res://icon.svg"
 GameManager="*uid://tk2aorv5h7gm"
 GestorMonedas="*uid://beud4oiehsios"
 GestorPuntaje="*uid://cq1ekfxae54ny"
+AudioManager="*uid://bhhswan4x0i5p"
 
 [display]
 

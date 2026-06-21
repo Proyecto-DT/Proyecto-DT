@@ -78,6 +78,7 @@ func _colocar_defensa() -> void:
 	var torreta = torreta_gomera.instantiate()
 	get_tree().current_scene.add_child(torreta)
 	torreta.global_position = vista_previa.global_position
+	AudioManager.tower_placed()
 	_cancelar()
 
 func _cancelar() -> void:

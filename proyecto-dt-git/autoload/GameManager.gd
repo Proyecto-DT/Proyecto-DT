@@ -11,6 +11,8 @@ var celda_ocupada: Array[Vector2i] = []
 
 func _ready():
 	print("GameManager listo. Estado inicial: MENU")
+	await get_tree().process_frame
+	cambiar_estado(EstadoJuego.MENU)
 
 func cambiar_estado(nuevo_estado: EstadoJuego):
 	estado_actual = nuevo_estado
@@ -19,23 +21,26 @@ func cambiar_estado(nuevo_estado: EstadoJuego):
 	
 	match estado_actual:
 		EstadoJuego.MENU:
-			get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
+			get_tree().call_deferred("change_scene_to_file", "res://scenes/menu/menu.tscn")
 			nivel_actual = null
+			AudioManager.play_menu_music()
 		
 		EstadoJuego.PREPARACION:
 			if nivel_actual == null or not is_instance_valid(nivel_actual):
-				get_tree().change_scene_to_file("res://scenes/niveles.tscn")
+				get_tree().call_deferred("change_scene_to_file", "res://scenes/niveles.tscn")
 			else:
 				_reiniciar_spawner()
 		
 		EstadoJuego.INVASION:
-			_iniciar_invasion()
+			pass
 		
 		EstadoJuego.VICTORIA:
 			_mostrar_pantalla_final()
+			AudioManager.stop_music_with_fade()
 		
 		EstadoJuego.DERROTA:
 			_mostrar_pantalla_final()
+			AudioManager.stop_music_with_fade()
 
 func _reiniciar_spawner():
 	print("Reiniciando spawner...")
@@ -52,21 +57,27 @@ func _iniciar_invasion(ruta = null):
 		nivel_actual = get_tree().current_scene
 	
 	var spawner = _buscar_spawner(nivel_actual)
+	if not spawner:
+		print("Error: No se encontró el Spawner")
+		return
+	
+	if ruta == null:
+		if spawner.has_method("get_ruta") and spawner.ruta_a_seguir:
+			ruta = spawner.ruta_a_seguir
+		else:
+			print("Error: No se proporcionó ruta y el spawner no tiene una configurada")
+			return
+	
 	spawner.configurar_ruta(ruta)
 	
-	if spawner:
-		# conectar señal de victoria
-		if not spawner.todas_hormigas_muertas.is_connected(_on_victoria):
-			spawner.todas_hormigas_muertas.connect(_on_victoria)
-		
-		spawner.enemigos_generados = 0
-		spawner.enemigos_vivos = 0
-		spawner.inicio_generacion()
-		print("¡Invasión comenzada!")
-	else:
-		print("Error: No se encontró el Spawner")
+	if not spawner.todas_hormigas_muertas.is_connected(_on_victoria):
+		spawner.todas_hormigas_muertas.connect(_on_victoria)
 	
-	# conectar señal de derrota desde la reina
+	spawner.enemigos_generados = 0
+	spawner.enemigos_vivos = 0
+	spawner.inicio_generacion()
+	print("¡Invasión comenzada!")
+	
 	var reina = _buscar_reina(nivel_actual)
 	if reina and not reina.reina_muerta.is_connected(_on_derrota):
 		reina.reina_muerta.connect(_on_derrota)

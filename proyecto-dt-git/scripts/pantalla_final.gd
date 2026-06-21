@@ -8,8 +8,7 @@ extends Control
 @onready var contenedor = $ColorRect
 
 func _ready():
-	
-	contenedor.size = Vector2(get_viewport().size.x,get_viewport().size.y)
+	contenedor.set_deferred("size", Vector2(get_viewport().size.x, get_viewport().size.y))
 	
 	var es_victoria = (GameManager.estado_actual == GameManager.EstadoJuego.VICTORIA)
 	
@@ -21,6 +20,9 @@ func _ready():
 	if es_victoria:
 		contenedor.color = "00e65f1e"
 		GestorPuntaje.sumar_puntos(100)
+		AudioManager.victory()   # Sonido de victoria
+	else:
+		AudioManager.defeat()    # Sonido de derrota
 	
 	puntaje_label.text = "Puntaje: " + str(GestorPuntaje.puntaje_total)
 	
@@ -29,8 +31,10 @@ func _ready():
 
 func _on_boton_menu_pressed():
 	print("Botón Menú presionado - Volviendo al MENU")
+	AudioManager.ui_select()   # Sonido de selección UI
 	GameManager.cambiar_estado(GameManager.EstadoJuego.MENU)
 
 func _on_boton_continuar_pressed():
 	print("Botón Continuar presionado - Nueva oleada")
+	AudioManager.ui_select()   # Sonido de selección UI
 	GameManager.cambiar_estado(GameManager.EstadoJuego.PREPARACION)
