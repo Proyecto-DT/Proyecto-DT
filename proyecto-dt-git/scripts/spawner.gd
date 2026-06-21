@@ -1,7 +1,7 @@
 extends Node3D
 class_name Spawner
 
-#signal oleada_completada
+signal oleada_completada
 signal todas_hormigas_muertas
 
 @export var escena_enemigo: PackedScene
