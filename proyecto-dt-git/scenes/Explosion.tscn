@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dmgx7d1r7o2oa"]
+
+[ext_resource type="Texture2D" uid="uid://b2hekmq1fnmgo" path="res://assets/Textures/explosion.png" id="1_6o7x5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6o7x5"]
+albedo_texture = ExtResource("1_6o7x5")
+emission_enabled = true
+emission = Color(0.90588236, 0.7882353, 0.09019608, 1)
+emission_energy_multiplier = 7.67
+emission_operator = 1
+emission_texture = ExtResource("1_6o7x5")
+billboard_mode = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_i4n8h"]
+material = SubResource("StandardMaterial3D_6o7x5")
+radius = 0.2
+height = 0.3
+
+[node name="Explosion" type="CPUParticles3D" unique_id=1970378728]
+emitting = false
+amount = 110
+lifetime = 0.09999999999999999
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+mesh = SubResource("SphereMesh_i4n8h")
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 0.8
+color = Color(1, 0.6313726, 0.007843138, 1)

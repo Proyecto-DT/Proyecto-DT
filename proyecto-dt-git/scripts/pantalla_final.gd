@@ -28,6 +28,8 @@ func _ready():
 	
 	boton_menu.pressed.connect(_on_boton_menu_pressed)
 	boton_continuar.pressed.connect(_on_boton_continuar_pressed)
+	boton_menu.mouse_entered.connect(_on_boton_hover)
+	boton_continuar.mouse_entered.connect(_on_boton_hover)
 
 func _on_boton_menu_pressed():
 	print("Botón Menú presionado - Volviendo al MENU")
@@ -38,3 +40,6 @@ func _on_boton_continuar_pressed():
 	print("Botón Continuar presionado - Nueva oleada")
 	AudioManager.ui_select()
 	GameManager.cambiar_estado(GameManager.EstadoJuego.PREPARACION)
+	
+func _on_boton_hover():
+	AudioManager.ui_hover()
