@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dwbso2f6v8vjb"
+path="res://.godot/imported/black ant reina.obj-d927fd8ed142f108ce8b9834e0a06993.mesh"
+
+[deps]
+
+files=["res://.godot/imported/black ant reina.obj-d927fd8ed142f108ce8b9834e0a06993.mesh"]
+
+source_file="res://models/Hormiga Reina/black ant reina.obj"
+dest_files=["res://.godot/imported/black ant reina.obj-d927fd8ed142f108ce8b9834e0a06993.mesh", "res://.godot/imported/black ant reina.obj-d927fd8ed142f108ce8b9834e0a06993.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
