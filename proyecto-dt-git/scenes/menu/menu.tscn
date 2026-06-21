@@ -95,6 +95,22 @@ theme_override_fonts/font = ExtResource("2_6387k")
 theme_override_font_sizes/font_size = 40
 text = "Volver"
 
+[node name="PanelVolumen" type="VBoxContainer" parent="." unique_id=624948438]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelVolumen" type="Label" parent="PanelVolumen" unique_id=874713653]
+layout_mode = 2
+
+[node name="VolumenSlider" type="HSlider" parent="PanelVolumen" unique_id=240765461]
+layout_mode = 2
+
+[node name="BotonVolver" type="Button" parent="PanelVolumen" unique_id=871708852]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6387k")
+text = "Volver"
+
 [connection signal="pressed" from="PanelMenu/NuevaPartida" to="." method="_on_nueva_partida_pressed"]
 [connection signal="pressed" from="PanelMenu/Opciones" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="PanelMenu/Salir" to="." method="_on_salir_pressed"]

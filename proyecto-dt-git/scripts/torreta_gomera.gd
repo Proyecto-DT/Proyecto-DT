@@ -54,6 +54,7 @@ func atacar_objetivo():
 	
 	var dir = (enemigo_actual.global_position - proyectil.global_position).normalized()
 	proyectil.direccion = dir
+	AudioManager.tower_shoot()
 
 func _on_timer_disparo_timeout() -> void:
 	atacar_objetivo()

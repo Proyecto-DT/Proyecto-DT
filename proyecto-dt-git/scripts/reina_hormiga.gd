@@ -14,7 +14,7 @@ func _ready():
 func recibir_danio(cantidad: int):
 	vida_actual -= cantidad
 	_actualizar_barra_vida()
-	
+	AudioManager.play_sfx("event_1", -3)
 	if vida_actual <= 0:
 		morir()
 
@@ -25,6 +25,7 @@ func _actualizar_barra_vida():
 
 func morir():
 	print("¡La reina ha muerto!")
+	AudioManager.play_sfx("event_1", -2)
 	reina_muerta.emit()
 	queue_free()
 

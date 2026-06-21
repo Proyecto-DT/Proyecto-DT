@@ -39,6 +39,7 @@ func siguiente_generacion_enemigo():
 func aparicion_enemiga():
 	var enemigo = escena_enemigo.instantiate()
 	add_child(enemigo)
+	AudioManager.spawn_enemy()
 	
 	if enemigo.has_method("set_ruta"):
 		enemigo.set_ruta(ruta_a_seguir)

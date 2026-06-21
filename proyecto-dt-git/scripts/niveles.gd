@@ -9,14 +9,13 @@ extends Node3D
 @export var tile_cesped:PackedScene
 @export var tile_enemigo:PackedScene
 
-# Referencia al nodo Spawner (hijo)
 @onready var spawner_node = $Spawner
 
-#Tamaño del mapa
+var label_preparacion: Label = null
+
 @export var mapa_longitud:int = 16
 @export var mapa_latitud:int = 10
 
-#Restricciones del camino
 @export var min_path_size = 50
 @export var max_path_size = 70
 @export var min_loops = 3
@@ -29,8 +28,79 @@ func _ready():
 	_generadorcaminos = GeneradorCaminos.new(mapa_latitud, mapa_longitud)
 	_mostrar_camino()
 	_completar_mapa()
+	
+	spawner_node.estado_generador = false
+	spawner_node.enemigos_generados = 0
+	spawner_node.enemigos_vivos = 0
+	
+	if not spawner_node.todas_hormigas_muertas.is_connected(_on_victoria):
+		spawner_node.todas_hormigas_muertas.connect(_on_victoria)
+	
+	var reina = _buscar_reina(self)
+	if reina and not reina.reina_muerta.is_connected(_on_derrota):
+		reina.reina_muerta.connect(_on_derrota)
+	
+	_crear_label_preparacion()
+	
+	if GameManager.estado_actual == GameManager.EstadoJuego.PREPARACION:
+		_mostrar_label_preparacion()
+	
+	spawner_node.configurar_ruta(path_3d)
+	await get_tree().process_frame
+	AudioManager.play_game_music()
+	
+func _crear_label_preparacion():
+	if label_preparacion == null:
+		label_preparacion = Label.new()
+		label_preparacion.text = "Presiona Enter para terminar preparación"
+		label_preparacion.add_theme_color_override("font_color", Color.WHITE)
+		label_preparacion.add_theme_font_size_override("font_size", 30)
+		label_preparacion.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label_preparacion.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		label_preparacion.modulate.a = 1.0
+		
+		var canvas = CanvasLayer.new()
+		add_child(canvas)
+		canvas.add_child(label_preparacion)
+		
+		label_preparacion.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y - 100)
+		
+		label_preparacion.visible = false
 
-	GameManager._iniciar_invasion(path_3d)
+func _mostrar_label_preparacion():
+	if label_preparacion:
+		label_preparacion.visible = true
+		if label_preparacion.get_child_count() > 0:
+			var old_tween = label_preparacion.get_child(0)
+			if old_tween is Tween:
+				old_tween.kill()
+		var tween = create_tween()
+		tween.set_loops()
+		tween.tween_property(label_preparacion, "modulate:a", 0.1, 0.5)
+		tween.tween_property(label_preparacion, "modulate:a", 1.0, 0.5)
+
+func _ocultar_label_preparacion():
+	if label_preparacion:
+		label_preparacion.visible = false
+		if label_preparacion.get_child_count() > 0:
+			var tween = label_preparacion.get_child(0)
+			if tween is Tween:
+				tween.kill()
+		label_preparacion.modulate.a = 1.0
+
+func _input(event):
+	if GameManager.estado_actual == GameManager.EstadoJuego.PREPARACION:
+		if event is InputEventKey and event.pressed and event.keycode == KEY_ENTER:
+			_iniciar_invasion()
+
+func _iniciar_invasion():
+	print("Iniciando invasión desde niveles.gd")
+	
+	_ocultar_label_preparacion()
+	
+	GameManager.cambiar_estado(GameManager.EstadoJuego.INVASION)
+	
+	spawner_node.inicio_generacion()
 
 func _completar_mapa():
 	var celdas_libres: Array[Vector2i] = []
@@ -39,7 +109,7 @@ func _completar_mapa():
 			if not _generadorcaminos.obtener_camino().has(Vector2i(x,y)):
 				var tile: Node3D
 				
-				if tile_cesped_bloqueado.size() > 0 and randf() < 0.2: #probabilidad de salir cesped bloqueado
+				if tile_cesped_bloqueado.size() > 0 and randf() < 0.2:
 					tile = tile_cesped_bloqueado.pick_random().instantiate()
 				else:
 					tile = tile_cesped.instantiate()
@@ -106,3 +176,22 @@ func _mostrar_camino():
 		add_child(tile)
 		tile.position = Vector3(_generadorcaminos.get_path_tile(i).x, 0, _generadorcaminos.get_path_tile(i).y)
 		tile.rotation_degrees = tile_rotation
+
+func _buscar_reina(nodo: Node) -> Node:
+	if not nodo:
+		return null
+	for hijo in nodo.get_children():
+		if hijo.is_in_group("reina"):
+			return hijo
+		var encontrado = _buscar_reina(hijo)
+		if encontrado:
+			return encontrado
+	return null
+
+func _on_victoria():
+	print("Victoria desde niveles.gd")
+	GameManager.cambiar_estado(GameManager.EstadoJuego.VICTORIA)
+
+func _on_derrota():
+	print("Derrota desde niveles.gd")
+	GameManager.cambiar_estado(GameManager.EstadoJuego.DERROTA)

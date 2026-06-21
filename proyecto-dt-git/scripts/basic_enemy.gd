@@ -77,8 +77,10 @@ func _on_area_3d_area_entered(area: Area3D):
 func morir(muere_por_torreta):
 	if muere_por_torreta:
 		murio.emit(valor_puntos, valor_monedas)
+		AudioManager.enemy_dead()
 	else:
 		murio.emit(0, 0)
+		AudioManager.enemy_dead()
 	call_deferred("queue_free")
 
 func pausar_movimiento():
