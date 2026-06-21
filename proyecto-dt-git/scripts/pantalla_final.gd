@@ -20,9 +20,9 @@ func _ready():
 	if es_victoria:
 		contenedor.color = "00e65f1e"
 		GestorPuntaje.sumar_puntos(100)
-		AudioManager.victory()   # Sonido de victoria
+		AudioManager.victory()
 	else:
-		AudioManager.defeat()    # Sonido de derrota
+		AudioManager.defeat()
 	
 	puntaje_label.text = "Puntaje: " + str(GestorPuntaje.puntaje_total)
 	
@@ -31,10 +31,10 @@ func _ready():
 
 func _on_boton_menu_pressed():
 	print("Botón Menú presionado - Volviendo al MENU")
-	AudioManager.ui_select()   # Sonido de selección UI
+	AudioManager.ui_select()
 	GameManager.cambiar_estado(GameManager.EstadoJuego.MENU)
 
 func _on_boton_continuar_pressed():
 	print("Botón Continuar presionado - Nueva oleada")
-	AudioManager.ui_select()   # Sonido de selección UI
+	AudioManager.ui_select()
 	GameManager.cambiar_estado(GameManager.EstadoJuego.PREPARACION)

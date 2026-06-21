@@ -11,14 +11,11 @@ extends Node3D
 
 @onready var spawner_node = $Spawner
 
-# Variable para el label (se creará en _ready)
 var label_preparacion: Label = null
 
-# Tamaño del mapa
 @export var mapa_longitud:int = 16
 @export var mapa_latitud:int = 10
 
-# Restricciones del camino
 @export var min_path_size = 50
 @export var max_path_size = 70
 @export var min_loops = 3
@@ -28,17 +25,14 @@ var _generadorcaminos:GeneradorCaminos
 var path_3d:Path3D 
 
 func _ready(): 
-	# Generar el nivel
 	_generadorcaminos = GeneradorCaminos.new(mapa_latitud, mapa_longitud)
 	_mostrar_camino()
 	_completar_mapa()
 	
-	# Configurar el spawner
 	spawner_node.estado_generador = false
 	spawner_node.enemigos_generados = 0
 	spawner_node.enemigos_vivos = 0
 	
-	# Conectar señales de victoria/derrota
 	if not spawner_node.todas_hormigas_muertas.is_connected(_on_victoria):
 		spawner_node.todas_hormigas_muertas.connect(_on_victoria)
 	
@@ -46,21 +40,16 @@ func _ready():
 	if reina and not reina.reina_muerta.is_connected(_on_derrota):
 		reina.reina_muerta.connect(_on_derrota)
 	
-	# Crear el label de preparación
 	_crear_label_preparacion()
 	
-	# Mostrar el label y animarlo (si estamos en PREPARACION)
 	if GameManager.estado_actual == GameManager.EstadoJuego.PREPARACION:
 		_mostrar_label_preparacion()
 	
-	# Almacenar la ruta en el spawner
 	spawner_node.configurar_ruta(path_3d)
-	# Esperar un frame para asegurarse de que la escena terminó de cargarse
 	await get_tree().process_frame
 	AudioManager.play_game_music()
 	
 func _crear_label_preparacion():
-	# Crear el label si no existe
 	if label_preparacion == null:
 		label_preparacion = Label.new()
 		label_preparacion.text = "Presiona Enter para terminar preparación"
@@ -70,26 +59,21 @@ func _crear_label_preparacion():
 		label_preparacion.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		label_preparacion.modulate.a = 1.0
 		
-		# Crear un CanvasLayer para que esté siempre visible
 		var canvas = CanvasLayer.new()
 		add_child(canvas)
 		canvas.add_child(label_preparacion)
 		
-		# Posicionar en el centro inferior de la pantalla
 		label_preparacion.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y - 100)
 		
-		# Ocultar inicialmente
 		label_preparacion.visible = false
 
 func _mostrar_label_preparacion():
 	if label_preparacion:
 		label_preparacion.visible = true
-		# Detener animaciones anteriores
 		if label_preparacion.get_child_count() > 0:
 			var old_tween = label_preparacion.get_child(0)
 			if old_tween is Tween:
 				old_tween.kill()
-		# Iniciar parpadeo
 		var tween = create_tween()
 		tween.set_loops()
 		tween.tween_property(label_preparacion, "modulate:a", 0.1, 0.5)
@@ -98,15 +82,13 @@ func _mostrar_label_preparacion():
 func _ocultar_label_preparacion():
 	if label_preparacion:
 		label_preparacion.visible = false
-		# Detener animación
 		if label_preparacion.get_child_count() > 0:
 			var tween = label_preparacion.get_child(0)
 			if tween is Tween:
 				tween.kill()
-		label_preparacion.modulate.a = 1.0  # Restaurar opacidad
+		label_preparacion.modulate.a = 1.0
 
 func _input(event):
-	# Solo en estado PREPARACION y si el label está visible
 	if GameManager.estado_actual == GameManager.EstadoJuego.PREPARACION:
 		if event is InputEventKey and event.pressed and event.keycode == KEY_ENTER:
 			_iniciar_invasion()
@@ -114,14 +96,10 @@ func _input(event):
 func _iniciar_invasion():
 	print("Iniciando invasión desde niveles.gd")
 	
-	# Ocultar label de preparación
 	_ocultar_label_preparacion()
 	
-	# Cambiar estado a INVASION
 	GameManager.cambiar_estado(GameManager.EstadoJuego.INVASION)
 	
-	# El GameManager se encargará de llamar a _iniciar_invasion en el spawner
-	# pero como ya tenemos la ruta configurada, podemos iniciar directamente
 	spawner_node.inicio_generacion()
 
 func _completar_mapa():

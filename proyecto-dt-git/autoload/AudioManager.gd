@@ -41,7 +41,6 @@ func _ready():
 	
 	print("AudioManager: musica_menu cargada? ", musica_menu != null)
 	print("AudioManager: musica_juego cargada? ", musica_juego != null)
-	# No iniciamos música automáticamente, lo hará GameManager
 
 # ---- Música ----
 func play_music(stream: AudioStream, fade_in: float = 0.0):
@@ -52,7 +51,6 @@ func play_music(stream: AudioStream, fade_in: float = 0.0):
 	if musica_actual.playing and musica_actual.stream == stream:
 		return
 
-	# Si hay otra música sonando, hacer el fade manualmente
 	if musica_actual.playing:
 		var tween = create_tween()
 		tween.tween_property(musica_actual, "volume_db", -80, 0.3)
