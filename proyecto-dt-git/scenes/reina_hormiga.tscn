@@ -1,17 +1,23 @@
 [gd_scene format=3 uid="uid://cptfl2n726tcy"]
 
 [ext_resource type="Script" uid="uid://cwg5bue4wldij" path="res://scripts/reina_hormiga.gd" id="1_gpvfu"]
+[ext_resource type="ArrayMesh" uid="uid://dwbso2f6v8vjb" path="res://models/Hormiga Reina/black ant reina.obj" id="2_j28yu"]
+[ext_resource type="Texture2D" uid="uid://bbt87vxkbk1g" path="res://models/Hormiga Reina/black_ant_reina.png" id="3_t5c47"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_bqqla"]
-radius = 0.50255674
+[sub_resource type="BoxShape3D" id="BoxShape3D_j28yu"]
+size = Vector3(1, 0.91711426, 0.78897095)
 
-[sub_resource type="SphereMesh" id="SphereMesh_j28yu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmkqn"]
+albedo_texture = ExtResource("3_t5c47")
 
 [node name="Reina" type="StaticBody3D" unique_id=774188681 groups=["reina"]]
+transform = Transform3D(-1.5298985e-08, 0, -0.35, 0, 0.35, 0, 0.35, 0, -1.5298985e-08, 0, 0, 0)
 script = ExtResource("1_gpvfu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1901561483]
-shape = SubResource("SphereShape3D_bqqla")
+transform = Transform3D(1.8665757, 0, 7.1054274e-14, 0, 3.8107996, 0, -7.1054274e-15, 0, 4.9423575, -8.881784e-16, 0.033725947, -0.17126608)
+shape = SubResource("BoxShape3D_j28yu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=739884829]
-mesh = SubResource("SphereMesh_j28yu")
+mesh = ExtResource("2_j28yu")
+surface_material_override/0 = SubResource("StandardMaterial3D_cmkqn")

@@ -8,6 +8,7 @@ extends Node3D
 @export var tile_cesped_bloqueado:Array[PackedScene]
 @export var tile_cesped:PackedScene
 @export var tile_enemigo:PackedScene
+@export var escena_reina:PackedScene
 
 @onready var spawner_node = $Spawner
 
@@ -167,6 +168,10 @@ func _mostrar_camino():
 		elif tile_score == 1:
 			tile = tile_final.instantiate()
 			tile_rotation = Vector3(0, -90, 0)
+			var pos = _generadorcaminos.get_path_tile(i)
+			var reina = escena_reina.instantiate()
+			add_child(reina)
+			reina.position = Vector3(pos.x, 0.5, pos.y)
 		elif tile_score == 4:
 			tile = tile_inicio.instantiate()
 			tile_rotation = Vector3(0, 90, 0)
