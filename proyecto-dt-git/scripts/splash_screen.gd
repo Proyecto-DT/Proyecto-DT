@@ -8,6 +8,7 @@ var duracion_fade_out: float = 1.0
 @onready var logo = $ColorRect/CenterContainer/TextureRect
 
 func _ready():
+	print("SPLASH READY")
 	fade()
 
 func fade():
