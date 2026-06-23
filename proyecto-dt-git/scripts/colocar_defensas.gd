@@ -9,13 +9,10 @@ var vista_previa: Node3D = null
 
 func _ready() -> void:
 	icon = colocar_defensas_icono
-	# señal de cambio de estado
 	GameManager.estado_cambiado.connect(_on_estado_cambiado)
-	# actualizar visibilidad inicial
 	_on_estado_cambiado(GameManager.estado_actual)
 
 func _on_estado_cambiado(nuevo_estado):
-	# solo visible en estado PREPARACION
 	visible = (nuevo_estado == GameManager.EstadoJuego.PREPARACION)
 	
 	if nuevo_estado != GameManager.EstadoJuego.PREPARACION and colocando:
