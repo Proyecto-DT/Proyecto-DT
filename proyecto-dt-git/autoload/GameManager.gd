@@ -2,7 +2,7 @@ extends Node
 
 signal estado_cambiado(nuevo_estado)
 
-enum EstadoJuego { MENU, PREPARACION, INVASION, VICTORIA, DERROTA }
+enum EstadoJuego { MENU, PREPARACION, INVASION, VICTORIA, DERROTA, SPLASHSCREEN }
 var estado_actual: EstadoJuego = EstadoJuego.MENU
 var nivel_actual: Node = null
 
@@ -12,7 +12,7 @@ var celda_ocupada: Array[Vector2i] = []
 func _ready():
 	print("GameManager listo. Estado inicial: MENU")
 	await get_tree().process_frame
-	cambiar_estado(EstadoJuego.MENU)
+	cambiar_estado(EstadoJuego.SPLASHSCREEN)
 
 func cambiar_estado(nuevo_estado: EstadoJuego):
 	estado_actual = nuevo_estado
@@ -20,6 +20,10 @@ func cambiar_estado(nuevo_estado: EstadoJuego):
 	print("Estado cambiado a: ", estado_actual)
 	
 	match estado_actual:
+		EstadoJuego.SPLASHSCREEN:
+			get_tree().call_deferred("change_scene_to_file", "res://scenes/splash_screen.tscn")
+			nivel_actual = null
+			AudioManager.play_menu_music()
 		EstadoJuego.MENU:
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/menu/menu.tscn")
 			nivel_actual = null
