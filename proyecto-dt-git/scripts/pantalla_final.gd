@@ -39,6 +39,7 @@ func _on_boton_menu_pressed():
 func _on_boton_continuar_pressed():
 	print("Botón Continuar presionado - Nueva oleada")
 	AudioManager.ui_select()
+	GameManager.sum_vida_por_ronda()
 	GameManager.cambiar_estado(GameManager.EstadoJuego.PREPARACION)
 	
 func _on_boton_hover():

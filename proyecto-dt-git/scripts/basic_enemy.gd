@@ -22,7 +22,6 @@ func _ready():
 		animation_player.play("ArmatureAction")
 
 func set_ruta(nueva_ruta: Path3D):
-	print("🔍 set_ruta() llamado")
 	ruta = nueva_ruta
 	longitud_total = ruta.curve.get_baked_length()
 	ruta_seguimiento = PathFollow3D.new()
@@ -82,10 +81,15 @@ func _on_area_3d_area_entered(area: Area3D):
 			morir(true)
 		area.queue_free()
 
+func actualizar_nueva_vida(nueva_vida):
+	vida = nueva_vida
+	valor_puntos += 5
+	$SubViewport/ProgressBar.max_value = vida
+	$SubViewport/ProgressBar.value = vida
+
 func morir(muere_por_torreta):
 	if animation_player and animation_player.is_playing():
 		animation_player.stop()
-	
 	if muere_por_torreta:
 		murio.emit(valor_puntos, valor_monedas)
 	else:
