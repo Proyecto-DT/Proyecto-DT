@@ -7,7 +7,7 @@ extends Control
 @onready var volumen_slider: HSlider = $PanelVolumen/VolumenSlider
 @onready var label_volumen: Label = $PanelVolumen/LabelVolumen
 @onready var boton_volver_volumen: Button = $PanelVolumen/BotonVolver
-@onready var boton_volumen: Button = $Opciones/Volumen
+@onready var boton_volumen: Button = $Opciones/Volumen   # <--- nombre correcto
 
 func _ready():
 	panel_menu.visible = true
@@ -66,7 +66,7 @@ func _on_boton_volumen_pressed() -> void:
 	AudioManager.ui_select()
 	opciones.visible = false
 	panel_volumen.visible = true
-	_centrar_panel_volumen()
+	_centrar_panel_volumen()   # <--- Ajustar posición/tamaño
 	_actualizar_interfaz_volumen()
 
 func _on_volver_volumen_pressed() -> void:
@@ -91,6 +91,7 @@ func _on_volumen_slider_value_changed(value: float):
 
 # ---- Centrar y agrandar el panel de volumen ----
 func _centrar_panel_volumen():
+	# 1. Panel ocupa casi toda la pantalla (con márgenes del 10%)
 	panel_volumen.anchor_left = 0.1
 	panel_volumen.anchor_top = 0.1
 	panel_volumen.anchor_right = 0.9
@@ -100,20 +101,24 @@ func _centrar_panel_volumen():
 	panel_volumen.offset_right = 0
 	panel_volumen.offset_bottom = 0
 	
-	# centrar VBoxContainer verticalmente
+	# 2. Configurar el VBoxContainer para centrar verticalmente
 	panel_volumen.alignment = BoxContainer.ALIGNMENT_CENTER
 	panel_volumen.size_flags_horizontal = Control.SIZE_EXPAND | Control.SIZE_FILL
 	panel_volumen.size_flags_vertical = Control.SIZE_EXPAND | Control.SIZE_FILL
 	
+	# 3. Agrandar el label (fuente más grande)
 	label_volumen.add_theme_font_size_override("font_size", 50)
 	
+	# 4. Configurar el slider para que ocupe un ancho razonable y tenga altura
 	volumen_slider.size_flags_horizontal = Control.SIZE_EXPAND | Control.SIZE_FILL
-	volumen_slider.custom_minimum_size = Vector2(400, 40)
+	volumen_slider.custom_minimum_size = Vector2(400, 40)  # Ancho mínimo, altura mayor
 	
-	boton_volver_volumen.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	boton_volver_volumen.custom_minimum_size = Vector2(200, 60)
-	boton_volver_volumen.add_theme_font_size_override("font_size", 30)
+	# 5. CONFIGURAR EL BOTÓN VOLVER: centrado y con tamaño adecuado
+	boton_volver_volumen.size_flags_horizontal = Control.SIZE_SHRINK_CENTER  # Centrado
+	boton_volver_volumen.custom_minimum_size = Vector2(200, 60)  # Tamaño visible
+	boton_volver_volumen.add_theme_font_size_override("font_size", 30)  # Texto más grande
 	
+	# 6. Asegurar que todos los hijos se centren horizontalmente
 	for child in panel_volumen.get_children():
 		if child is Control and child != label_volumen and child != volumen_slider and child != boton_volver_volumen:
 			child.size_flags_horizontal = Control.SIZE_SHRINK_CENTER

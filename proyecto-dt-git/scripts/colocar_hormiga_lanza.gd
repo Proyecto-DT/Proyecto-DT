@@ -78,6 +78,7 @@ func _colocar_defensa() -> void:
 	var lanza = hormiga_lanza.instantiate()
 	get_tree().current_scene.add_child(lanza)
 	lanza.global_position = vista_previa.global_position
+	AudioManager.tower_placed()
 	_cancelar()
 	
 func _cancelar() -> void:

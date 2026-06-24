@@ -96,11 +96,8 @@ func _input(event):
 
 func _iniciar_invasion():
 	print("Iniciando invasión desde niveles.gd")
-	
 	_ocultar_label_preparacion()
-	
 	GameManager.cambiar_estado(GameManager.EstadoJuego.INVASION)
-	
 	spawner_node.inicio_generacion()
 
 func _completar_mapa():
