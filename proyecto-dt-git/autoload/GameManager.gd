@@ -10,6 +10,7 @@ var celdas_cesped: Array[Vector2i] = []
 var celda_ocupada: Array[Vector2i] = []
 
 var vida_por_ronda = 100
+var puntos_por_ronda = 10
 
 func _ready():
 	print("GameManager listo. Estado inicial: MENU")
@@ -45,6 +46,8 @@ func cambiar_estado(nuevo_estado: EstadoJuego):
 
 func sum_vida_por_ronda():
 	vida_por_ronda += 50
+	puntos_por_ronda += 5
+	
 	pass
 	
 func _on_victoria():

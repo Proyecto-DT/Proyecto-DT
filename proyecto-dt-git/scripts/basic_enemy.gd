@@ -12,7 +12,7 @@ var se_mueve: bool = false
 var longitud_total: float = 0.0
 var vida: float = 100
 var valor_puntos = 10
-var valor_monedas = 5
+var valor_monedas = 15
 
 signal murio(puntos, monedas)
 
@@ -81,15 +81,15 @@ func _on_area_3d_area_entered(area: Area3D):
 			morir(true)
 		area.queue_free()
 
-func actualizar_nueva_vida(nueva_vida):
+func actualizar_nueva_vida(nueva_vida, nuevos_puntos):
 	vida = nueva_vida
-	valor_puntos += 5
+	valor_puntos = nuevos_puntos
 	$SubViewport/ProgressBar.max_value = vida
 	$SubViewport/ProgressBar.value = vida
 
 func morir(muere_por_torreta):
 	if animation_player and animation_player.is_playing():
-		animation_player.stop()
+		animation_player.stop() 
 	if muere_por_torreta:
 		murio.emit(valor_puntos, valor_monedas)
 	else:

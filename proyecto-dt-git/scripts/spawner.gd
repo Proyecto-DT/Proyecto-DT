@@ -40,7 +40,7 @@ func aparicion_enemiga():
 	var enemigo = escena_enemigo.instantiate()
 	add_child(enemigo)
 	if GameManager.vida_por_ronda > 100:
-		enemigo.actualizar_nueva_vida(GameManager.vida_por_ronda)
+		enemigo.actualizar_nueva_vida(GameManager.vida_por_ronda, GameManager.puntos_por_ronda)
 	AudioManager.spawn_enemy()
 	
 	if enemigo.has_method("set_ruta"):
